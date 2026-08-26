@@ -121,3 +121,53 @@ footer{background:#030a11;color:white;padding:48px max(28px,calc((100vw - var(--
   .case-step figure{height:430px}
   .case-result>div{flex-direction:column}
 }
+
+/* Responsive polish after desktop/mobile layout audit */
+.about__image,.about__copy,.case-brief>*{min-width:0;max-width:100%}
+.form-note{color:#8998a8!important}
+footer small,footer>span{color:#8394a5}
+
+@media(max-width:1100px){
+  .menu-toggle{min-width:44px;height:44px}
+  .mobile-menu{gap:4px}
+  .mobile-menu a{display:flex;align-items:center;min-height:44px}
+}
+
+@media(max-width:900px){
+  .service-grid a,.projects-heading-side a,.case-back,footer div a{display:flex;align-items:center;min-height:44px}
+  .service-grid a{justify-content:space-between}
+}
+
+@media(min-width:761px) and (max-width:900px){
+  .about{grid-template-columns:1fr}
+  .about__image{min-height:460px}
+  .about__copy{padding:80px 28px}
+  .about__stats{gap:40px}
+}
+
+@media(max-width:760px){
+  .hero__marker{display:none}
+  .trust-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;overflow:visible;padding-bottom:0}
+  .trust-row>div{min-width:0;padding:0 10px;gap:5px;flex-direction:column}
+  .trust-row>div:first-child{padding-left:0}
+  .trust-row>div:last-child{padding-right:0;border-right:0}
+  .trust-row b{font-size:14px;white-space:normal}
+  .trust-row span{font-size:11px}
+  .projects-index-cta{padding:70px 20px}
+  .case-step figure{height:clamp(330px,110vw,430px)}
+  .case-result h2{font-size:clamp(27px,7.4vw,30px);line-height:1.16}
+}
+
+@media(max-width:360px){
+  .hero h1{font-size:31px;overflow-wrap:anywhere}
+  .section-heading h2,.about h2,.request h2{font-size:32px;line-height:1;overflow-wrap:anywhere}
+  .projects-index-hero h1{font-size:40px;line-height:.94}
+  .case-hero__copy{padding:60px 20px}
+  .case-hero h1{font-size:29px;line-height:.96;overflow-wrap:anywhere}
+  .case-brief h2,.case-story__heading h2{font-size:31px;line-height:1;overflow-wrap:anywhere}
+  .case-step__copy h2{font-size:26px}
+  .case-result h2{font-size:27px}
+  .trust-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}
+  .trust-row>div:nth-child(2){border-right:0}
+  .trust-row>div:last-child{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;padding-top:14px;border-top:1px solid #ffffff2c}
+}
