@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://tuning.bodrbo.ru/assets/source-1.jpg">
   <title>Бодрый Боцман — тюнинг и ремонт катеров</title>
   <link rel="icon" href="assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <header class="site-header">
@@ -88,10 +88,14 @@
 
     <section class="request" id="request">
       <div><p class="eyebrow">Предварительная оценка</p><h2>Покажите катер.<br>Мы предложим решение.</h2><p>Опишите задачу и приложите ссылку на фото — сориентируем по стоимости и срокам.</p></div>
-      <form id="lead-form">
+      <form id="lead-form" action="submit-request.php" method="post">
+        <input type="hidden" name="request_id" value="">
+        <input type="hidden" name="source_url" value="">
+        <label class="form-trap" aria-hidden="true">Сайт компании<input name="company_website" tabindex="-1" autocomplete="off"></label>
         <label>Ваше имя<input name="name" autocomplete="name" required placeholder="Александр"></label>
         <label>Телефон<input name="phone" autocomplete="tel" required placeholder="+7 999 000-00-00"></label>
-        <label class="form-wide">Что нужно сделать<textarea name="message" rows="3" placeholder="Модель катера и задача"></textarea></label>
+        <label class="form-wide">Модель катера<input name="boat_model" autocomplete="off" placeholder="Например, Axopar 28"></label>
+        <label class="form-wide">Что нужно сделать<textarea name="message" rows="3" placeholder="Коротко опишите задачу"></textarea></label>
         <button class="button form-wide" type="submit">Получить консультацию</button>
         <p class="form-note form-wide">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
       </form>
@@ -105,7 +109,7 @@
     <p>Санкт-Петербург<br>Ежедневно, 10:00–20:00</p>
     <span>© Бодрый Боцман, 2026</span>
   </footer>
-  <div class="toast" role="status" aria-live="polite">Спасибо! Заявка подготовлена — свяжитесь с нами по телефону.</div>
-  <script src="script.js?v=2"></script>
+  <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

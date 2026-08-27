@@ -20,7 +20,10 @@ python3 -m http.server 4173 --bind 127.0.0.1
 - `projects-data.js` — данные опубликованных кейсов;
 - `assets/` — изображения и фотографии проектов;
 - `styles.css` и `script.js` — оформление и клиентская логика;
-- `DEPLOY-BEGET.md` — инструкция по публикации на Beget.
+- `submit-request.php` — серверная отправка заявок в «Бодрый Бизнес»;
+- `INTEGRATION-BODRY-BUSINESS.md` — настройка интеграции формы;
+- `DEPLOY-BEGET.md` — инструкция по первой публикации на Beget;
+- `GIT-BEGET.md` — подключение GitHub к Beget и обновление сайта через SSH.
 
 ## Production-сборка
 

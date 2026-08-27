@@ -171,3 +171,10 @@ footer small,footer>span{color:#8394a5}
   .trust-row>div:nth-child(2){border-right:0}
   .trust-row>div:last-child{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;padding-top:14px;border-top:1px solid #ffffff2c}
 }
+
+/* Lead form integration states */
+.request form{position:relative}
+.form-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.request button[disabled]{cursor:wait;opacity:.72;transform:none;filter:none}
+.toast{max-width:min(520px,calc(100vw - 40px));line-height:1.45}
+.toast--error{border-left-color:#d94b4b}
