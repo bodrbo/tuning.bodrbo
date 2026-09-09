@@ -156,7 +156,8 @@ git log -1 --oneline
 
 - `https://tuning.bodrbo.ru/` — должна открыться новая версия;
 - `https://tuning.bodrbo.ru/.git/config` — должен вернуться ответ 404, а не содержимое Git-конфигурации;
-- `https://tuning.bodrbo.ru/projects.html` — должны открыться проекты.
+- `https://tuning.bodrbo.ru/proekty/` — должны открыться проекты;
+- `https://tuning.bodrbo.ru/projects.html` — должен перенаправить на `/proekty/` с кодом 301.
 
 Защита `.git` уже добавлена в `.htaccess` проекта. Не удаляйте это правило, пока репозиторий находится внутри `public_html`.
 

@@ -9,6 +9,56 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule "(^|/)\.git(/|$)" - [R=404,L,NC]
+
+  # Старые технические URL перенаправляем на постоянные человекопонятные адреса.
+  # THE_REQUEST не даёт внутренним правилам ниже зациклить редиректы.
+  RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+  RewriteRule ^index\.html$ / [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+projects\.html(?:[?\s]) [NC]
+  RewriteRule ^projects\.html$ /proekty/ [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+motors\.html(?:[?\s]) [NC]
+  RewriteRule ^motors\.html$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+motor\.php(?:[?\s]) [NC]
+  RewriteRule ^motor\.php$ /lodochnye-motory-marine-rocket/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html\? [NC]
+  RewriteCond %{QUERY_STRING} (^|&)case=recovery(&|$) [NC]
+  RewriteRule ^project\.html$ /proekty/vosstanovlenie-katera-posle-utopleniya/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html\? [NC]
+  RewriteCond %{QUERY_STRING} (^|&)case=mariah(&|$) [NC]
+  RewriteRule ^project\.html$ /proekty/tyuning-katera-mariah-s21le/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html\? [NC]
+  RewriteCond %{QUERY_STRING} (^|&)case=macgregor(&|$) [NC]
+  RewriteRule ^project\.html$ /proekty/pokraska-yakhty-macgregor-26/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html\? [NC]
+  RewriteCond %{QUERY_STRING} (^|&)case=salut(&|$) [NC]
+  RewriteRule ^project\.html$ /proekty/tyuning-katera-salyut-585nt/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html\? [NC]
+  RewriteCond %{QUERY_STRING} (^|&)case=gladius(&|$) [NC]
+  RewriteRule ^project\.html$ /proekty/remont-falshkilya-gladius-520/ [R=301,L,NE,QSD]
+
+  RewriteCond %{THE_REQUEST} \s/+project\.html(?:[?\s]) [NC]
+  RewriteRule ^project\.html$ /proekty/ [R=301,L,NE,QSD]
+
+  # У всех публичных разделов один канонический формат — с завершающим слешем.
+  RewriteRule ^proekty$ /proekty/ [R=301,L,NE]
+  RewriteRule ^lodochnye-motory-marine-rocket$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
+  RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodochnye-motory-marine-rocket/$1/ [R=301,L,NE]
+  RewriteRule ^proekty/(vosstanovlenie-katera-posle-utopleniya|tyuning-katera-mariah-s21le|pokraska-yakhty-macgregor-26|tyuning-katera-salyut-585nt|remont-falshkilya-gladius-520)$ /proekty/$1/ [R=301,L,NE]
+
+  # Чистые URL обслуживаются существующими HTML-шаблонами без изменения адреса.
+  RewriteRule ^sitemap-motory\.xml$ motor-sitemap.php [L]
+  RewriteRule ^proekty/?$ projects.html [L]
+  RewriteRule ^lodochnye-motory-marine-rocket/?$ motors.html [L]
+  RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ motor.php?slug=$1 [L,QSA]
+  RewriteRule ^proekty/(vosstanovlenie-katera-posle-utopleniya|tyuning-katera-mariah-s21le|pokraska-yakhty-macgregor-26|tyuning-katera-salyut-585nt|remont-falshkilya-gladius-520)/?$ project.html [L]
 </IfModule>
 
 <IfModule mod_headers.c>

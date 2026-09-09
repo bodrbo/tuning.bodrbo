@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tuning.bodrbo.ru/</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/projects.html</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/motors.html</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/project.html?case=recovery</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/project.html?case=mariah</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/project.html?case=macgregor</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/project.html?case=salut</loc></url>
-  <url><loc>https://tuning.bodrbo.ru/project.html?case=gladius</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/vosstanovlenie-katera-posle-utopleniya/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/tyuning-katera-mariah-s21le/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/pokraska-yakhty-macgregor-26/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/tyuning-katera-salyut-585nt/</loc></url>
+  <url><loc>https://tuning.bodrbo.ru/proekty/remont-falshkilya-gladius-520/</loc></url>
 </urlset>

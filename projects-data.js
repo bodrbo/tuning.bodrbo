@@ -1,5 +1,6 @@
 const PROJECTS = {
   recovery: {
+    slug: 'vosstanovlenie-katera-posle-utopleniya',
     title: 'Восстановление катера после утопления',
     shortTitle: 'Marina 900: восстановление после утопления',
     subtitle: 'Подняли судно, восстановили корпус и полностью переработали палубу, чтобы катер стал безопаснее и мореходнее.',
@@ -30,6 +31,7 @@ const PROJECTS = {
     ]
   },
   mariah: {
+    slug: 'tyuning-katera-mariah-s21le',
     title: 'Комплексный тюнинг катера Mariah S21LE',
     shortTitle: 'Mariah S21LE: комплексный тюнинг',
     subtitle: 'Полировка корпуса, восстановление прицепа и его тормозной системы, новый интерьер и ремонт электрики.',
@@ -49,6 +51,7 @@ const PROJECTS = {
     ]
   },
   macgregor: {
+    slug: 'pokraska-yakhty-macgregor-26',
     title: 'Покраска яхты MacGregor 26',
     shortTitle: 'MacGregor 26: защита подводной части',
     subtitle: 'Удаление старого покрытия, ремонт стеклопластика и нанесение новой необрастающей системы.',
@@ -69,6 +72,7 @@ const PROJECTS = {
     ]
   },
   salut: {
+    slug: 'tyuning-katera-salyut-585nt',
     title: 'Тюнинг катера Салют 585НТ',
     shortTitle: 'Салют 585НТ: комплектация «люкс»',
     subtitle: 'Собрали новый катер от пустого корпуса до полностью готового к воде комплекта.',
@@ -98,6 +102,7 @@ const PROJECTS = {
     ]
   },
   gladius: {
+    slug: 'remont-falshkilya-gladius-520',
     title: 'Ремонт фальшкиля Gladius 520',
     shortTitle: 'Gladius 520: новый фальшкиль',
     subtitle: 'Восстановили защиту киля после сильного удара о камни.',

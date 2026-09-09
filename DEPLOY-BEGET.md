@@ -54,16 +54,18 @@
 Откройте:
 
 - `https://tuning.bodrbo.ru/`
-- `https://tuning.bodrbo.ru/projects.html`
-- `https://tuning.bodrbo.ru/project.html?case=recovery`
-- `https://tuning.bodrbo.ru/motors.html`
+- `https://tuning.bodrbo.ru/proekty/`
+- `https://tuning.bodrbo.ru/proekty/vosstanovlenie-katera-posle-utopleniya/`
+- `https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/`
+- `https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/mref90fel-t/`
 - `https://tuning.bodrbo.ru/marine-rocket-catalog.php` — должен вернуть JSON с `"ok":true` и массивом `products`;
 - `https://tuning.bodrbo.ru/robots.txt`
 - `https://tuning.bodrbo.ru/sitemap.xml`
+- `https://tuning.bodrbo.ru/sitemap-motory.xml` — должен вернуть XML со страницами всех актуальных моторов;
 - `https://tuning.bodrbo.ru/submit-request.php` — запрос методом GET должен вернуть `405`;
 - любой несуществующий адрес — должна показаться фирменная страница 404.
 
-Проверьте мобильное меню, переходы по карточкам, телефонные и почтовые ссылки, а также загрузку фотографий кейсов.
+Проверьте мобильное меню, переходы по карточкам и страницам моторов, телефонные и почтовые ссылки, а также загрузку фотографий кейсов.
 
 ## Важно: форма заявки
 

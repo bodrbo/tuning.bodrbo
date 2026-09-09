@@ -1,5 +1,7 @@
 const caseRoot = document.querySelector('#case-content');
-const caseKey = new URLSearchParams(window.location.search).get('case');
+const pathSlug = decodeURIComponent(window.location.pathname.replace(/\/+$/, '').split('/').pop() || '');
+const pathProject = Object.entries(PROJECTS).find(([, item]) => item.slug === pathSlug);
+const caseKey = pathProject?.[0] || new URLSearchParams(window.location.search).get('case');
 const project = PROJECTS[caseKey];
 const siteUrl = 'https://tuning.bodrbo.ru';
 
@@ -9,12 +11,12 @@ if (!project) {
     <section class="case-missing">
       <p class="eyebrow">Ошибка маршрута</p>
       <h1>Такого проекта нет</h1>
-      <a class="button" href="projects.html">Смотреть все проекты</a>
+      <a class="button" href="/proekty/">Смотреть все проекты</a>
     </section>`;
 } else {
   document.title = `${project.title} — Бодрый Боцман`;
   document.querySelector('meta[name="description"]').setAttribute('content', project.subtitle);
-  const canonicalUrl = `${siteUrl}/project.html?case=${encodeURIComponent(caseKey)}`;
+  const canonicalUrl = `${siteUrl}/proekty/${project.slug}/`;
   document.querySelector('#canonical-url').setAttribute('href', canonicalUrl);
   document.querySelector('#og-title').setAttribute('content', document.title);
   document.querySelector('#og-description').setAttribute('content', project.subtitle);
@@ -28,20 +30,20 @@ if (!project) {
         <h2>${step[0]}</h2>
         <p>${step[1]}</p>
       </div>
-      <figure><img src="assets/projects/${caseKey}/${step[2]}" alt="${step[0]} — ${project.shortTitle}" loading="lazy"></figure>
+      <figure><img src="/assets/projects/${caseKey}/${step[2]}" alt="${step[0]} — ${project.shortTitle}" loading="lazy"></figure>
     </article>`).join('');
 
   caseRoot.innerHTML = `
     <article>
       <header class="case-hero">
         <div class="case-hero__copy">
-          <a class="case-back" href="projects.html">← Все проекты</a>
+          <a class="case-back" href="/proekty/">← Все проекты</a>
           <p class="eyebrow">${project.category}</p>
           <h1>${project.title}</h1>
           <p class="case-hero__lead">${project.subtitle}</p>
           <div class="case-facts">${project.facts.map(fact => `<span>${fact}</span>`).join('')}</div>
         </div>
-        <figure><img src="${project.cover}" alt="${project.shortTitle}"></figure>
+        <figure><img src="/${project.cover}" alt="${project.shortTitle}"></figure>
       </header>
 
       <section class="case-brief">
@@ -57,7 +59,7 @@ if (!project) {
       <section class="case-result">
         <p class="eyebrow">Результат</p>
         <h2>${project.result}</h2>
-        <div><a class="button" href="index.html#request">Обсудить похожую задачу</a><a class="button button--ghost" href="projects.html">Другие проекты</a></div>
+        <div><a class="button" href="/#request">Обсудить похожую задачу</a><a class="button button--ghost" href="/proekty/">Другие проекты</a></div>
       </section>
     </article>`;
 }

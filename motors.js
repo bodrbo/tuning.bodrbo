@@ -7,14 +7,6 @@ if (catalogGrid) {
   const powerSelect = document.querySelector('#motor-power');
   const sortSelect = document.querySelector('#motor-sort');
   const categoryButtons = Array.from(document.querySelectorAll('[data-motor-category]'));
-  const dialog = document.querySelector('#motor-dialog');
-  const dialogImage = document.querySelector('#motor-dialog-image');
-  const dialogGallery = document.querySelector('#motor-dialog-gallery');
-  const dialogCategory = document.querySelector('#motor-dialog-category');
-  const dialogTitle = document.querySelector('#motor-dialog-title');
-  const dialogPrice = document.querySelector('#motor-dialog-price');
-  const dialogSpecs = document.querySelector('#motor-dialog-specs');
-  const dialogRequest = document.querySelector('#motor-dialog-request');
   const requestSection = document.querySelector('#motor-request');
   const leadForm = document.querySelector('#lead-form');
   const modelField = leadForm?.elements.boat_model;
@@ -27,7 +19,6 @@ if (catalogGrid) {
 
   let products = [];
   let activeCategory = 'all';
-  let activeProduct = null;
 
   const createElement = (tag, className, text) => {
     const element = document.createElement(tag);
@@ -90,7 +81,10 @@ if (catalogGrid) {
 
   const createMotorCard = product => {
     const card = createElement('article', 'motor-card');
-    const media = createElement('div', 'motor-card__media');
+    const productUrl = `/lodochnye-motory-marine-rocket/${encodeURIComponent(product.slug)}/`;
+    const media = createElement('a', 'motor-card__media');
+    media.href = productUrl;
+    media.setAttribute('aria-label', `Открыть страницу мотора Marine Rocket ${product.model}`);
     const image = createElement('img');
     image.src = product.image;
     image.alt = product.name;
@@ -110,7 +104,10 @@ if (catalogGrid) {
 
     const content = createElement('div', 'motor-card__content');
     const category = createElement('p', 'motor-card__category', product.category);
-    const title = createElement('h2', 'motor-card__title', product.model);
+    const title = createElement('h2', 'motor-card__title');
+    const titleLink = createElement('a', '', product.model);
+    titleLink.href = productUrl;
+    title.append(titleLink);
     const priceLabel = createElement('span', 'motor-card__price-label', 'Цена');
     const price = createElement('p', 'motor-card__price', formatPrice(product.price));
     price.prepend(priceLabel);
@@ -133,10 +130,9 @@ if (catalogGrid) {
     const requestButton = createElement('button', 'button motor-card__request', 'Подобрать к катеру');
     requestButton.type = 'button';
     requestButton.dataset.motorRequest = product.id;
-    const detailsButton = createElement('button', 'motor-card__details', 'Характеристики');
-    detailsButton.type = 'button';
-    detailsButton.dataset.motorDetails = product.id;
-    actions.append(requestButton, detailsButton);
+    const detailsLink = createElement('a', 'motor-card__details', 'Подробнее');
+    detailsLink.href = productUrl;
+    actions.append(requestButton, detailsLink);
 
     content.append(category, title, price, specs, actions);
     card.append(media, content);
@@ -190,46 +186,6 @@ if (catalogGrid) {
     window.setTimeout(() => leadForm?.elements.name?.focus({ preventScroll: true }), 500);
   };
 
-  const openProductDialog = product => {
-    if (!dialog || !product) return;
-    activeProduct = product;
-    if (dialogCategory) dialogCategory.textContent = product.category;
-    if (dialogTitle) dialogTitle.textContent = product.model;
-    if (dialogPrice) dialogPrice.textContent = formatPrice(product.price);
-    if (dialogImage) {
-      dialogImage.src = product.image;
-      dialogImage.alt = product.name;
-    }
-    if (dialogSpecs) {
-      dialogSpecs.replaceChildren();
-      Object.entries(product.specs || {}).forEach(([label, value]) => {
-        const row = createElement('div');
-        row.append(createElement('dt', '', label), createElement('dd', '', value));
-        dialogSpecs.append(row);
-      });
-    }
-    if (dialogGallery) {
-      dialogGallery.replaceChildren();
-      (product.pictures || []).forEach((source, index) => {
-        const button = createElement('button', `motor-dialog__thumb${index === 0 ? ' is-active' : ''}`);
-        button.type = 'button';
-        button.setAttribute('aria-label', `Показать фотографию ${index + 1}`);
-        const thumb = createElement('img');
-        thumb.src = source;
-        thumb.alt = '';
-        thumb.loading = 'lazy';
-        button.append(thumb);
-        button.addEventListener('click', () => {
-          if (dialogImage) dialogImage.src = source;
-          dialogGallery.querySelectorAll('button').forEach(item => item.classList.toggle('is-active', item === button));
-        });
-        dialogGallery.append(button);
-      });
-    }
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
-  };
-
   categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
       activeCategory = button.dataset.motorCategory || 'all';
@@ -243,24 +199,10 @@ if (catalogGrid) {
 
   catalogGrid.addEventListener('click', event => {
     const requestButton = event.target.closest('[data-motor-request]');
-    const detailsButton = event.target.closest('[data-motor-details]');
     if (requestButton) selectMotor(products.find(product => product.id === requestButton.dataset.motorRequest));
-    if (detailsButton) openProductDialog(products.find(product => product.id === detailsButton.dataset.motorDetails));
   });
 
-  dialog?.querySelector('[data-dialog-close]')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('click', event => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
-    const inside = event.clientX >= bounds.left && event.clientX <= bounds.right && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
-    if (!inside) dialog.close();
-  });
-  dialogRequest?.addEventListener('click', () => {
-    dialog?.close();
-    selectMotor(activeProduct);
-  });
-
-  fetch('marine-rocket-catalog.php', { headers: { Accept: 'application/json' } })
+  fetch('/marine-rocket-catalog.php', { headers: { Accept: 'application/json' } })
     .then(response => response.json().then(payload => ({ response, payload })))
     .then(({ response, payload }) => {
       if (!response.ok || !payload.ok || !Array.isArray(payload.products)) {

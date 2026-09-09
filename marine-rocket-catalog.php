@@ -1,10 +1,6 @@
 <?php
 declare(strict_types=1);
 
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: public, max-age=300, stale-while-revalidate=1800');
-header('X-Content-Type-Options: nosniff');
-
 const MARINE_ROCKET_FEED = 'https://dealers.marinerocket.ru/uploads/yml/f2e1ee4bb8b3895bb069ea2fe1bcb61f33e3c15c/export.yml';
 const MARINE_ROCKET_CACHE_TTL = 1800;
 const MARINE_ROCKET_MAX_FEED_BYTES = 5242880;
@@ -31,10 +27,12 @@ function read_catalog_cache(string $path): ?array
     }
 
     $payload = json_decode($contents, true);
-    if (!is_array($payload) || ($payload['schema_version'] ?? null) !== 1 || empty($payload['products'])) {
+    if (!is_array($payload) || !in_array((int) ($payload['schema_version'] ?? 0), [1, 2], true) || empty($payload['products'])) {
         return null;
     }
 
+    $payload['schema_version'] = 2;
+    $payload['products'] = add_catalog_product_slugs($payload['products']);
     $payload['_cache_mtime'] = (int) @filemtime($path);
     return $payload;
 }
@@ -98,6 +96,58 @@ function fetch_catalog_feed(): string
 function normalise_space(string $value): string
 {
     return trim((string) preg_replace('/\s+/u', ' ', $value));
+}
+
+function catalog_product_slug(string $model): string
+{
+    $slugSource = $model;
+    if (preg_match('/^([A-Za-z0-9.]+(?:-[A-Za-z0-9]+)*(?:\s+PRO)?)/', $model, $matches)) {
+        $slugSource = $matches[1];
+        if (preg_match('/водом[её]т/ui', $model)) {
+            $slugSource .= ' vodomet';
+        }
+    }
+
+    $transliterated = strtr($slugSource, [
+        'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'E',
+        'Ж' => 'Zh', 'З' => 'Z', 'И' => 'I', 'Й' => 'Y', 'К' => 'K', 'Л' => 'L', 'М' => 'M',
+        'Н' => 'N', 'О' => 'O', 'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U',
+        'Ф' => 'F', 'Х' => 'H', 'Ц' => 'Ts', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Sch',
+        'Ъ' => '', 'Ы' => 'Y', 'Ь' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
+        'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e',
+        'ж' => 'zh', 'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm',
+        'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u',
+        'ф' => 'f', 'х' => 'h', 'ц' => 'ts', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sch',
+        'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+    ]);
+    $slug = strtolower((string) preg_replace('/[^A-Za-z0-9]+/', '-', $transliterated));
+    return trim($slug, '-');
+}
+
+function add_catalog_product_slugs(array $products): array
+{
+    $used = [];
+    $result = [];
+
+    foreach ($products as $product) {
+        if (!is_array($product)) {
+            continue;
+        }
+        $id = preg_replace('/[^A-Za-z0-9]+/', '-', (string) ($product['id'] ?? ''));
+        $base = catalog_product_slug((string) ($product['model'] ?? ''));
+        if ($base === '') {
+            $base = 'motor-' . ($id !== '' ? strtolower($id) : count($result) + 1);
+        }
+        $slug = $base;
+        if (isset($used[$slug])) {
+            $slug .= '-' . ($id !== '' ? strtolower($id) : count($result) + 1);
+        }
+        $used[$slug] = true;
+        $product['slug'] = $slug;
+        $result[] = $product;
+    }
+
+    return $result;
 }
 
 function safe_image_url(string $url): string
@@ -259,8 +309,10 @@ function parse_catalog_feed(string $xml): array
         throw new RuntimeException('No motor offers found');
     }
 
+    $products = add_catalog_product_slugs($products);
+
     return [
-        'schema_version' => 1,
+        'schema_version' => 2,
         'ok' => true,
         'stale' => false,
         'source_updated_at' => normalise_space((string) $catalog['date']),
@@ -270,32 +322,53 @@ function parse_catalog_feed(string $xml): array
     ];
 }
 
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'GET') {
-    header('Allow: GET');
-    respond_json(405, ['ok' => false, 'message' => 'Метод не поддерживается']);
-}
-
-$cachePath = dirname(__DIR__) . '/.marine-rocket-catalog.json';
-$cached = read_catalog_cache($cachePath);
-$cacheMtime = $cached['_cache_mtime'] ?? 0;
-if ($cached && $cacheMtime > time() - MARINE_ROCKET_CACHE_TTL) {
-    unset($cached['_cache_mtime']);
-    respond_json(200, $cached);
-}
-
-try {
-    $payload = parse_catalog_feed(fetch_catalog_feed());
-    write_catalog_cache($cachePath, $payload);
-    respond_json(200, $payload);
-} catch (Throwable $error) {
-    error_log('Marine Rocket catalog update failed: ' . $error->getMessage());
-    if ($cached) {
+function load_catalog_payload(): array
+{
+    $cachePath = dirname(__DIR__) . '/.marine-rocket-catalog.json';
+    $cached = read_catalog_cache($cachePath);
+    $cacheMtime = $cached['_cache_mtime'] ?? 0;
+    if ($cached && $cacheMtime > time() - MARINE_ROCKET_CACHE_TTL) {
         unset($cached['_cache_mtime']);
-        $cached['stale'] = true;
-        respond_json(200, $cached);
+        return $cached;
     }
-    respond_json(503, [
-        'ok' => false,
-        'message' => 'Каталог временно недоступен. Позвоните нам — поможем подобрать мотор.',
-    ]);
+
+    try {
+        $payload = parse_catalog_feed(fetch_catalog_feed());
+        write_catalog_cache($cachePath, $payload);
+        return $payload;
+    } catch (Throwable $error) {
+        error_log('Marine Rocket catalog update failed: ' . $error->getMessage());
+        if ($cached) {
+            unset($cached['_cache_mtime']);
+            $cached['stale'] = true;
+            return $cached;
+        }
+        throw $error;
+    }
+}
+
+function run_catalog_endpoint(): void
+{
+    header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: public, max-age=300, stale-while-revalidate=1800');
+    header('X-Content-Type-Options: nosniff');
+
+    if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'GET') {
+        header('Allow: GET');
+        respond_json(405, ['ok' => false, 'message' => 'Метод не поддерживается']);
+    }
+
+    try {
+        respond_json(200, load_catalog_payload());
+    } catch (Throwable $error) {
+        respond_json(503, [
+            'ok' => false,
+            'message' => 'Каталог временно недоступен. Позвоните нам — поможем подобрать мотор.',
+        ]);
+    }
+}
+
+$catalogScript = isset($_SERVER['SCRIPT_FILENAME']) ? realpath((string) $_SERVER['SCRIPT_FILENAME']) : false;
+if ($catalogScript !== false && $catalogScript === __FILE__) {
+    run_catalog_endpoint();
 }
