@@ -1,6 +1,6 @@
 # Размещение `tuning.bodrbo.ru` на Beget
 
-`tuning.bodrbo.ru` технически является поддоменом домена `bodrbo.ru`. Интерфейс сайта статический: база данных, CMS и Node.js на сервере не нужны. Для отправки формы используется небольшой PHP-обработчик с расширением cURL; его настройка описана в [`INTEGRATION-BODRY-BUSINESS.md`](INTEGRATION-BODRY-BUSINESS.md).
+`tuning.bodrbo.ru` технически является поддоменом домена `bodrbo.ru`. Интерфейс сайта статический: база данных, CMS и Node.js на сервере не нужны. PHP используется для отправки формы и безопасного обновления каталога Marine Rocket; на сервере должны быть доступны расширения cURL и SimpleXML. Настройка формы описана в [`INTEGRATION-BODRY-BUSINESS.md`](INTEGRATION-BODRY-BUSINESS.md).
 
 Если сайт будет обновляться из GitHub командой `git pull`, используйте отдельную инструкцию [`GIT-BEGET.md`](GIT-BEGET.md). Для постоянной работы это удобнее ручной загрузки ZIP-архивов.
 
@@ -56,6 +56,8 @@
 - `https://tuning.bodrbo.ru/`
 - `https://tuning.bodrbo.ru/projects.html`
 - `https://tuning.bodrbo.ru/project.html?case=recovery`
+- `https://tuning.bodrbo.ru/motors.html`
+- `https://tuning.bodrbo.ru/marine-rocket-catalog.php` — должен вернуть JSON с `"ok":true` и массивом `products`;
 - `https://tuning.bodrbo.ru/robots.txt`
 - `https://tuning.bodrbo.ru/sitemap.xml`
 - `https://tuning.bodrbo.ru/submit-request.php` — запрос методом GET должен вернуть `405`;

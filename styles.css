@@ -178,3 +178,129 @@ footer small,footer>span{color:#8394a5}
 .request button[disabled]{cursor:wait;opacity:.72;transform:none;filter:none}
 .toast{max-width:min(520px,calc(100vw - 40px));line-height:1.45}
 .toast--error{border-left-color:#d94b4b}
+
+/* Marine Rocket catalog */
+.motors-page{--rocket:#ff623e;--motor-silver:#dfe5e9;background:#eef1f4}
+.nav a[aria-current="page"]{color:#70a8ff}
+.motor-hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(440px,.98fr);min-height:720px;background:#06111e;color:#fff;overflow:hidden}
+.motor-hero__copy{display:flex;flex-direction:column;justify-content:center;padding:90px max(28px,calc((100vw - var(--max))/2)) 90px max(28px,calc((100vw - var(--max))/2));padding-right:clamp(40px,6vw,100px)}
+.motor-hero h1{max-width:760px;margin:0;font-size:clamp(55px,6.2vw,92px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase}
+.motor-hero h1 em{color:var(--blue);font-style:normal}
+.motor-hero__lead{max-width:670px;margin:30px 0 0;color:#bac5cf;font-size:18px;line-height:1.65}
+.motor-hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.motor-hero__facts{display:grid;grid-template-columns:repeat(3,1fr);max-width:720px;margin:48px 0 0;border-top:1px solid #ffffff24}
+.motor-hero__facts div{min-width:0;padding:23px 18px 0;border-right:1px solid #ffffff24}
+.motor-hero__facts div:first-child{padding-left:0}
+.motor-hero__facts div:last-child{border:0}
+.motor-hero__facts dt{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.motor-hero__facts dd{margin:6px 0 0;color:#8998a6;font-size:11px;line-height:1.4;text-transform:uppercase}
+.motor-hero__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:720px;background-color:#f7f8f9;background-image:linear-gradient(#0d2b4610 1px,transparent 1px),linear-gradient(90deg,#0d2b4610 1px,transparent 1px);background-size:42px 42px;isolation:isolate}
+.motor-hero__visual:before{content:"";position:absolute;width:min(78%,600px);aspect-ratio:1;border:1px solid #0b22361d;border-radius:50%;box-shadow:0 0 0 50px #0b223608,0 0 0 100px #0b223606}
+.motor-hero__visual img{position:relative;z-index:2;width:min(65%,470px);height:600px;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.08);transform:translateY(-6px)}
+.motor-hero__stamp{position:absolute;z-index:4;top:40px;right:40px;width:108px;height:108px;padding:25px 14px;border-radius:50%;background:var(--rocket);color:#fff;font:700 11px/1.35 monospace;text-align:center;text-transform:uppercase;transform:rotate(8deg);box-shadow:0 16px 35px #aa351f35}
+.motor-hero__code{position:absolute;z-index:1;left:25px;bottom:3px;color:#0715220a;font-size:clamp(150px,19vw,310px);font-weight:900;line-height:.6;letter-spacing:-.12em}
+.motor-hero__visual>p{position:absolute;z-index:4;right:38px;bottom:34px;display:flex;flex-direction:column;gap:5px;margin:0;padding:13px 16px;border-left:3px solid var(--rocket);background:#f7f8f9dd;color:#071522}
+.motor-hero__visual>p b{font-size:16px}.motor-hero__visual>p span{color:#5d6872;font:10px/1.4 monospace;text-transform:uppercase}
+
+.dealer-proof{padding:105px max(28px,calc((100vw - var(--max))/2));background:#e4e9ed}
+.dealer-proof__intro{display:grid;grid-template-columns:.8fr 1.2fr;align-items:end;gap:60px}
+.dealer-proof__intro .eyebrow{margin:0}.dealer-proof h2{margin:0;font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}
+.dealer-proof__grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:72px;border-top:1px solid #c5cdd4}
+.dealer-proof article{padding:30px 34px 0 0;border-right:1px solid #c5cdd4}
+.dealer-proof article+article{padding-left:34px}
+.dealer-proof article:last-child{border-right:0}
+.dealer-proof article>span{color:var(--blue);font:700 11px/1 monospace;letter-spacing:.08em;text-transform:uppercase}
+.dealer-proof h3{max-width:360px;margin:24px 0 14px;font-size:23px;line-height:1.08;text-transform:uppercase;letter-spacing:-.025em}
+.dealer-proof article p{max-width:390px;margin:0;color:#56636f;font-size:15px;line-height:1.65}
+
+.motor-catalog{padding:110px max(28px,calc((100vw - var(--max))/2));background:#f5f7f8}
+.motor-catalog__heading{display:flex;justify-content:space-between;align-items:end;gap:50px}
+.motor-catalog__heading h2{margin:0;font-size:clamp(45px,5vw,74px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}
+.motor-catalog__meta{display:flex;flex-direction:column;align-items:flex-end;gap:7px;padding-bottom:4px;text-align:right}
+.motor-catalog__meta output{font-size:20px;font-weight:800}.motor-catalog__meta small{color:#7a8792;font-size:11px;text-transform:uppercase}
+.motor-filters{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:1px;margin-top:62px;background:#cdd5dc;border:1px solid #cdd5dc}
+.motor-filters label{display:flex;flex-direction:column;gap:9px;padding:16px 18px;background:#fff}
+.motor-filters label>span{color:#7b8792;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.motor-filters input,.motor-filters select{width:100%;min-height:32px;padding:0 30px 0 0;border:0;outline:0;background:transparent;color:#071522;font-size:15px;font-weight:700}
+.motor-filters input:focus,.motor-filters select:focus{box-shadow:0 2px 0 var(--blue)}
+.motor-categories{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.motor-categories button{min-height:44px;padding:0 17px;border:1px solid #cdd5dc;border-radius:100px;background:transparent;color:#53606c;font-size:12px;font-weight:800;text-transform:uppercase;cursor:pointer;transition:.2s}
+.motor-categories button:hover{border-color:#7daeff;color:#0f5ee8}.motor-categories button[aria-pressed="true"]{border-color:#1d6ff1;background:#1d6ff1;color:#fff}
+.motor-categories button:focus-visible,.motor-card button:focus-visible,.motor-dialog button:focus-visible{outline:3px solid #74aaff;outline-offset:3px}
+.motor-catalog__note{max-width:820px;margin:22px 0 0;color:#7c8994;font-size:12px;line-height:1.55}
+.motor-catalog__loading{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+.motor-catalog__loading span{height:480px;background:linear-gradient(100deg,#e5e9ec 15%,#f4f6f8 35%,#e5e9ec 55%);background-size:240% 100%;animation:motor-loading 1.4s infinite}
+.motor-catalog__loading p{grid-column:1/-1;margin:3px 0 0;color:#7d8993;font-size:12px;text-transform:uppercase}
+@keyframes motor-loading{to{background-position-x:-240%}}
+.motor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:45px}
+.motor-card{display:flex;min-width:0;flex-direction:column;background:#fff;border:1px solid #e0e5e9;box-shadow:0 16px 45px #0715220a;transition:transform .25s,box-shadow .25s}
+.motor-card:hover{transform:translateY(-4px);box-shadow:0 24px 55px #07152216}
+.motor-card__media{position:relative;display:flex;align-items:center;justify-content:center;height:345px;padding:26px;background-color:#edf1f3;background-image:linear-gradient(#0824410b 1px,transparent 1px),linear-gradient(90deg,#0824410b 1px,transparent 1px);background-size:34px 34px;overflow:hidden}
+.motor-card__media img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s}.motor-card:hover .motor-card__media img{transform:scale(1.025)}
+.motor-card__media--empty:after{content:"MARINE ROCKET";color:#9ba6af;font:800 17px/1 monospace;letter-spacing:.05em}
+.motor-card__status{position:absolute;top:16px;left:16px;padding:8px 10px;background:#0d865a;color:#fff;font-size:9px;font-weight:800;letter-spacing:.055em;text-transform:uppercase}.motor-card__status--muted{background:#6d7882}
+.motor-card__content{display:flex;flex:1;flex-direction:column;padding:27px}
+.motor-card__category{margin:0;color:#287cff;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.motor-card__title{min-height:52px;margin:12px 0 20px;font-size:26px;line-height:1;letter-spacing:-.035em;text-transform:uppercase;overflow-wrap:anywhere}
+.motor-card__price{margin:0 0 24px;font-size:25px;font-weight:800;letter-spacing:-.025em}.motor-card__price-label{display:block;margin-bottom:5px;color:#8a959f;font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.motor-card__specs{margin:0 0 26px;border-top:1px solid #e2e7eb}
+.motor-card__specs>div{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #e2e7eb;font-size:12px}
+.motor-card__specs dt{color:#84909a}.motor-card__specs dd{margin:0;text-align:right;font-weight:700}
+.motor-card__actions{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:auto}
+.motor-card__request{min-height:48px;padding:0 15px;font-size:11px}.motor-card__details{min-height:44px;padding:0;border:0;background:transparent;color:#1d6ff1;font-size:11px;font-weight:800;text-transform:uppercase;cursor:pointer}
+.motor-catalog__empty{grid-column:1/-1;padding:80px 30px;border:1px solid #dbe1e6;background:#fff;text-align:center}.motor-catalog__empty strong{display:block;font-size:28px;text-transform:uppercase}.motor-catalog__empty p{max-width:520px;margin:14px auto 28px;color:#71808c;line-height:1.6}
+.motor-catalog__empty--error{border-top:4px solid var(--rocket)}
+
+.motor-service-band{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:end;padding:110px max(28px,calc((100vw - var(--max))/2));overflow:hidden;background:#0b1c2c;color:#fff}
+.motor-service-band h2{max-width:900px;margin:0;font-size:clamp(40px,5vw,72px);line-height:.93;letter-spacing:-.05em;text-transform:uppercase}
+.motor-service-band>p:not(.motor-service-band__mark){position:relative;z-index:2;max-width:500px;margin:0;color:#a8b4bf;font-size:17px;line-height:1.7}
+.motor-service-band__mark{position:absolute;right:-25px;top:-38px;margin:0;color:#ffffff08;font:900 clamp(85px,12vw,190px)/1 Arial,sans-serif;letter-spacing:-.07em;white-space:nowrap}
+.motor-request{border-top:1px solid #ffffff17}
+
+.motor-dialog{width:min(1120px,calc(100vw - 40px));max-height:calc(100vh - 40px);padding:0;border:0;background:#f6f7f8;color:#071522;box-shadow:0 30px 100px #0008;overflow:auto}
+.motor-dialog::backdrop{background:#020a12d9;backdrop-filter:blur(5px)}
+.motor-dialog[open]{display:grid;grid-template-columns:1fr 1fr}
+.motor-dialog__close{position:fixed;z-index:5;top:max(28px,calc((100vh - min(760px,100vh - 40px))/2 + 16px));right:max(28px,calc((100vw - min(1120px,100vw - 40px))/2 + 16px));width:44px;height:44px;border:0;border-radius:50%;background:#071522;color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.motor-dialog__media{display:flex;min-height:680px;flex-direction:column;justify-content:center;padding:40px;background:#e8edf0}
+.motor-dialog__media>img{width:100%;height:520px;object-fit:contain;mix-blend-mode:multiply}
+.motor-dialog__gallery{display:flex;gap:8px;justify-content:center;margin-top:18px;overflow-x:auto}
+.motor-dialog__thumb{flex:0 0 62px;width:62px;height:62px;padding:4px;border:1px solid #ccd4da;background:#fff;cursor:pointer}.motor-dialog__thumb.is-active{border:2px solid var(--blue)}.motor-dialog__thumb img{width:100%;height:100%;object-fit:contain}
+.motor-dialog__content{padding:70px 55px}.motor-dialog__content h2{margin:0;font-size:clamp(34px,4vw,58px);line-height:.93;letter-spacing:-.05em;text-transform:uppercase;overflow-wrap:anywhere}
+.motor-dialog__price{display:flex;flex-direction:column;gap:6px;margin:28px 0}.motor-dialog__price span{color:#84909a;font-size:10px;text-transform:uppercase}.motor-dialog__price b{font-size:30px}
+.motor-dialog__content dl{margin:0 0 32px;border-top:1px solid #d7dee4}.motor-dialog__content dl>div{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid #d7dee4;font-size:12px}.motor-dialog__content dt{color:#7d8993}.motor-dialog__content dd{margin:0;text-align:right;font-weight:700}
+
+.dealer-teaser{position:relative;display:grid;grid-template-columns:1.05fr .95fr;min-height:570px;overflow:hidden;background:#dfe5e9}
+.dealer-teaser__copy{display:flex;flex-direction:column;justify-content:center;padding:90px max(28px,calc((100vw - var(--max))/2));padding-right:clamp(40px,7vw,120px)}
+.dealer-teaser h2{max-width:740px;margin:0;font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}.dealer-teaser h2 em{color:var(--blue);font-style:normal}
+.dealer-teaser__copy>p:not(.eyebrow){max-width:590px;margin:28px 0 35px;color:#56636f;font-size:17px;line-height:1.65}.dealer-teaser__copy .button{align-self:flex-start}
+.dealer-teaser__visual{position:relative;display:flex;align-items:center;justify-content:center;background-color:#f5f6f7;background-image:linear-gradient(#0824410b 1px,transparent 1px),linear-gradient(90deg,#0824410b 1px,transparent 1px);background-size:40px 40px}
+.dealer-teaser__visual img{position:relative;z-index:2;width:min(64%,390px);height:510px;object-fit:contain;mix-blend-mode:multiply}
+.dealer-teaser__badge{position:absolute;z-index:3;top:35px;left:35px;max-width:155px;padding:16px;background:var(--rocket,#ff623e);color:#fff;font:700 11px/1.45 monospace;text-transform:uppercase}
+
+@media(max-width:1180px){
+  .motor-hero{grid-template-columns:1.08fr .92fr}.motor-hero__copy{padding-left:28px}.motor-hero__visual img{width:72%}
+  .motor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .motor-hero{grid-template-columns:1fr}.motor-hero__copy{padding:75px 28px}.motor-hero__visual{min-height:620px}.motor-hero__visual img{height:530px;width:min(60%,430px)}
+  .dealer-proof__intro{grid-template-columns:1fr;gap:24px}.dealer-proof__grid{grid-template-columns:1fr}.dealer-proof article,.dealer-proof article+article{padding:27px 0;border-right:0;border-bottom:1px solid #c5cdd4}.dealer-proof article:last-child{border-bottom:0}
+  .motor-catalog__heading{align-items:start}.motor-filters{grid-template-columns:1fr 1fr}.motor-search{grid-column:1/-1}
+  .motor-service-band{grid-template-columns:1fr;gap:30px}.motor-dialog[open]{grid-template-columns:1fr}.motor-dialog__media{min-height:520px}.motor-dialog__media>img{height:390px}.motor-dialog__close{position:fixed}
+  .dealer-teaser{grid-template-columns:1fr}.dealer-teaser__copy{padding:75px 28px}.dealer-teaser__visual{min-height:500px}
+}
+@media(max-width:760px){
+  .motor-hero__copy{padding:62px 20px}.motor-hero h1{font-size:clamp(39px,12.3vw,57px);line-height:.91}.motor-hero__lead{font-size:16px}.motor-hero__actions{flex-direction:column}.motor-hero__actions .button{width:100%}
+  .motor-hero__facts{gap:0}.motor-hero__facts div{padding:20px 9px 0}.motor-hero__facts dt{font-size:18px}.motor-hero__facts dd{font-size:9px}
+  .motor-hero__visual{min-height:500px}.motor-hero__visual img{width:68%;height:440px}.motor-hero__stamp{top:24px;right:20px;width:86px;height:86px;padding:19px 10px;font-size:9px}.motor-hero__visual>p{right:20px;bottom:22px}.motor-hero__code{left:5px;font-size:155px}
+  .dealer-proof,.motor-catalog,.motor-service-band{padding:70px 20px}.dealer-proof h2,.motor-catalog__heading h2,.motor-service-band h2{font-size:37px;line-height:.96}
+  .dealer-proof__grid{margin-top:42px}.dealer-proof h3{font-size:20px}
+  .motor-catalog__heading{display:block}.motor-catalog__meta{align-items:flex-start;margin-top:25px;text-align:left}.motor-filters{grid-template-columns:1fr;margin-top:38px}.motor-search{grid-column:auto}.motor-categories{flex-wrap:nowrap;margin-right:-20px;padding-right:20px;overflow-x:auto;scrollbar-width:none}.motor-categories::-webkit-scrollbar{display:none}.motor-categories button{flex:none}
+  .motor-catalog__loading{grid-template-columns:1fr}.motor-catalog__loading span{height:420px}.motor-catalog__loading span:nth-child(n+2){display:none}.motor-grid{grid-template-columns:1fr;margin-top:32px}.motor-card__media{height:330px}.motor-card__title{min-height:0}
+  .motor-service-band__mark{display:none}.motor-dialog{width:100vw;max-height:100vh}.motor-dialog__close{top:12px;right:12px}.motor-dialog__media{min-height:440px;padding:55px 20px 25px}.motor-dialog__media>img{height:330px}.motor-dialog__content{padding:45px 20px}.motor-dialog__content h2{font-size:38px}
+  .dealer-teaser__copy{padding:70px 20px}.dealer-teaser h2{font-size:37px}.dealer-teaser__visual{min-height:460px}.dealer-teaser__visual img{height:440px;width:68%}.dealer-teaser__badge{top:22px;left:20px}
+}
+@media(max-width:380px){
+  .motor-hero h1{font-size:37px}.motor-hero__facts{grid-template-columns:1fr}.motor-hero__facts div,.motor-hero__facts div:first-child{padding:14px 0;border-right:0;border-bottom:1px solid #ffffff24}.motor-hero__facts div:last-child{border-bottom:0}
+  .motor-card__content{padding:23px 18px}.motor-card__actions{grid-template-columns:1fr}.motor-card__details{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.motor-catalog__loading span{animation:none}}
