@@ -194,7 +194,7 @@ footer small,footer>span{color:#8394a5}
 .motor-hero__facts div:last-child{border:0}
 .motor-hero__facts dt{font-size:22px;font-weight:800;letter-spacing:-.03em}
 .motor-hero__facts dd{margin:6px 0 0;color:#8998a6;font-size:11px;line-height:1.4;text-transform:uppercase}
-.motor-hero__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:720px;background-color:#f7f8f9;background-image:linear-gradient(#0d2b4610 1px,transparent 1px),linear-gradient(90deg,#0d2b4610 1px,transparent 1px);background-size:42px 42px;isolation:isolate}
+.motor-hero__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:720px;background:#f7f8f9;isolation:isolate}
 .motor-hero__visual:before{content:"";position:absolute;width:min(78%,600px);aspect-ratio:1;border:1px solid #0b22361d;border-radius:50%;box-shadow:0 0 0 50px #0b223608,0 0 0 100px #0b223606}
 .motor-hero__visual img{position:relative;z-index:2;width:min(65%,470px);height:600px;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.08);transform:translateY(-6px)}
 .motor-hero__stamp{position:absolute;z-index:4;top:40px;right:40px;width:108px;height:108px;padding:25px 14px;border-radius:50%;background:var(--rocket);color:#fff;font:700 11px/1.35 monospace;text-align:center;text-transform:uppercase;transform:rotate(8deg);box-shadow:0 16px 35px #aa351f35}
@@ -235,7 +235,7 @@ footer small,footer>span{color:#8394a5}
 .motor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:45px}
 .motor-card{display:flex;min-width:0;flex-direction:column;background:#fff;border:1px solid #e0e5e9;box-shadow:0 16px 45px #0715220a;transition:transform .25s,box-shadow .25s}
 .motor-card:hover{transform:translateY(-4px);box-shadow:0 24px 55px #07152216}
-.motor-card__media{position:relative;display:flex;align-items:center;justify-content:center;height:345px;padding:26px;background-color:#edf1f3;background-image:linear-gradient(#0824410b 1px,transparent 1px),linear-gradient(90deg,#0824410b 1px,transparent 1px);background-size:34px 34px;overflow:hidden}
+.motor-card__media{position:relative;display:flex;align-items:center;justify-content:center;height:345px;padding:26px;background:#edf1f3;overflow:hidden}
 .motor-card__media img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s}.motor-card:hover .motor-card__media img{transform:scale(1.025)}
 .motor-card__media--empty:after{content:"MARINE ROCKET";color:#9ba6af;font:800 17px/1 monospace;letter-spacing:.05em}
 .motor-card__status{position:absolute;top:16px;left:16px;padding:8px 10px;background:#0d865a;color:#fff;font-size:9px;font-weight:800;letter-spacing:.055em;text-transform:uppercase}.motor-card__status--muted{background:#6d7882}
@@ -273,7 +273,7 @@ footer small,footer>span{color:#8394a5}
 .dealer-teaser__copy{display:flex;flex-direction:column;justify-content:center;padding:90px max(28px,calc((100vw - var(--max))/2));padding-right:clamp(40px,7vw,120px)}
 .dealer-teaser h2{max-width:740px;margin:0;font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}.dealer-teaser h2 em{color:var(--blue);font-style:normal}
 .dealer-teaser__copy>p:not(.eyebrow){max-width:590px;margin:28px 0 35px;color:#56636f;font-size:17px;line-height:1.65}.dealer-teaser__copy .button{align-self:flex-start}
-.dealer-teaser__visual{position:relative;display:flex;align-items:center;justify-content:center;background-color:#f5f6f7;background-image:linear-gradient(#0824410b 1px,transparent 1px),linear-gradient(90deg,#0824410b 1px,transparent 1px);background-size:40px 40px}
+.dealer-teaser__visual{position:relative;display:flex;align-items:center;justify-content:center;background:#f5f6f7}
 .dealer-teaser__visual img{position:relative;z-index:2;width:min(64%,390px);height:510px;object-fit:contain;mix-blend-mode:multiply}
 .dealer-teaser__badge{position:absolute;z-index:3;top:35px;left:35px;max-width:155px;padding:16px;background:var(--rocket,#ff623e);color:#fff;font:700 11px/1.45 monospace;text-transform:uppercase}
 

@@ -3,7 +3,6 @@ const catalogGrid = document.querySelector('#motor-grid');
 if (catalogGrid) {
   const catalogStatus = document.querySelector('#catalog-status');
   const catalogCount = document.querySelector('#catalog-count');
-  const catalogUpdated = document.querySelector('#catalog-updated');
   const searchInput = document.querySelector('#motor-search');
   const powerSelect = document.querySelector('#motor-power');
   const sortSelect = document.querySelector('#motor-sort');
@@ -16,7 +15,6 @@ if (catalogGrid) {
   const dialogPrice = document.querySelector('#motor-dialog-price');
   const dialogSpecs = document.querySelector('#motor-dialog-specs');
   const dialogRequest = document.querySelector('#motor-dialog-request');
-  const powerRange = document.querySelector('#motor-power-range');
   const requestSection = document.querySelector('#motor-request');
   const leadForm = document.querySelector('#lead-form');
   const modelField = leadForm?.elements.boat_model;
@@ -113,7 +111,7 @@ if (catalogGrid) {
     const content = createElement('div', 'motor-card__content');
     const category = createElement('p', 'motor-card__category', product.category);
     const title = createElement('h2', 'motor-card__title', product.model);
-    const priceLabel = createElement('span', 'motor-card__price-label', 'Рекомендованная цена');
+    const priceLabel = createElement('span', 'motor-card__price-label', 'Цена');
     const price = createElement('p', 'motor-card__price', formatPrice(product.price));
     price.prepend(priceLabel);
 
@@ -273,14 +271,6 @@ if (catalogGrid) {
         const category = button.dataset.motorCategory;
         button.hidden = category !== 'all' && !products.some(product => product.category_key === category);
       });
-      if (powerRange) {
-        const powers = products.map(product => Number(product.power)).filter(Number.isFinite);
-        if (powers.length) powerRange.textContent = `${Math.min(...powers)}–${Math.max(...powers)}`;
-      }
-      if (catalogUpdated) {
-        const sourceTime = payload.source_updated_at ? `Данные поставщика: ${payload.source_updated_at}` : 'Данные поставщика обновлены';
-        catalogUpdated.textContent = payload.stale ? `${sourceTime} · показываем сохранённую копию` : sourceTime;
-      }
       if (catalogStatus) catalogStatus.remove();
       renderProducts();
     })
