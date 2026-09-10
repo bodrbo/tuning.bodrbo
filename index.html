@@ -25,8 +25,36 @@
   <meta property="og:url" content="https://tuning.bodrbo.ru/">
   <meta property="og:image" content="https://tuning.bodrbo.ru/assets/source-1.jpg">
   <title>Бодрый Боцман — тюнинг и ремонт катеров</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Тюнинг-центр «Бодрый Боцман»",
+      "url": "https://tuning.bodrbo.ru/",
+      "telephone": "+79219676115",
+      "email": "info@bodrbo.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "производственно-административная зона Порзолово",
+        "addressLocality": "Низинское сельское поселение",
+        "addressRegion": "Ленинградская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 59.835474,
+        "longitude": 29.759391
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      }]
+    }
+  </script>
   <link rel="icon" href="assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <noscript><div><img src="https://mc.yandex.ru/watch/111997516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -131,11 +159,37 @@
     </section>
   </main>
 
-  <footer id="contacts">
+  <section class="location" id="contacts" aria-labelledby="location-title">
+    <div class="location__info">
+      <p class="eyebrow">Как добраться</p>
+      <h2 id="location-title">Тюнинг-центр<br>в Порзолово</h2>
+      <address>Ленинградская область, Ломоносовский район,<br>Низинское сельское поселение,<br>производственно-административная зона Порзолово</address>
+      <dl class="location__facts">
+        <div><dt>4 мин</dt><dd>от съезда с 41К-008</dd></div>
+        <div><dt>1,08 км</dt><dd>после поворота</dd></div>
+      </dl>
+      <p class="location__road-note"><span aria-hidden="true">△</span>Последний участок — неровная дорога. С прицепом двигайтесь аккуратно.</p>
+      <ol class="location__steps">
+        <li><span>01</span><p><strong>Съезд с 41К-008</strong>Ориентир на карте — точка «Якорь».</p></li>
+        <li><span>02</span><p><strong>Держитесь маршрута</strong>После съезда остаётся около одного километра.</p></li>
+        <li><span>03</span><p><strong>Финиш в промзоне</strong>Следуйте к конечной точке, отмеченной на карте.</p></li>
+      </ol>
+      <div class="location__actions">
+        <a class="button" href="https://yandex.ru/maps/2/saint-petersburg/?ll=29.757679%2C59.835349&amp;mode=routes&amp;rtext=59.835158%2C29.745648~59.835474%2C29.759391&amp;rtt=auto&amp;ruri=~&amp;z=15.17" target="_blank" rel="noopener">Открыть маршрут</a>
+        <a class="location__call" href="tel:+79219676115">Позвонить перед выездом</a>
+      </div>
+    </div>
+    <div class="location__map">
+      <iframe src="https://yandex.ru/map-widget/v1/?ll=29.752520%2C59.835316&amp;mode=routes&amp;rtext=59.835158%2C29.745648~59.835474%2C29.759391&amp;rtt=auto&amp;ruri=~&amp;z=14.2" title="Маршрут от дороги 41К-008 до тюнинг-центра в Порзолово" loading="lazy" allowfullscreen></iframe>
+      <span class="location__coordinates">59.835474 N<br>29.759391 E</span>
+    </div>
+  </section>
+
+  <footer>
     <a class="footer-brand" href="#top" aria-label="Бодрый Боцман — наверх"><img src="assets/boatswain-face-web.png" alt=""><strong>Бодрый<br>Боцман</strong></a>
     <div><small>Позвонить</small><a href="tel:+79219676115">+7 (921) 967-61-15</a></div>
     <div><small>Написать</small><a href="mailto:info@bodrbo.ru">info@bodrbo.ru</a></div>
-    <p>Санкт-Петербург<br>Ежедневно, 10:00–20:00</p>
+    <p>Тюнинг-центр · Порзолово<br>Ежедневно, 10:00–20:00</p>
     <span>© Бодрый Боцман, 2026</span>
   </footer>
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>

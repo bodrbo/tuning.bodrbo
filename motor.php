@@ -28,7 +28,7 @@ function render_catalog_unavailable(): void
       <meta name="theme-color" content="#071522">
       <title>Каталог обновляется — Бодрый Боцман</title>
       <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=9">
+      <link rel="stylesheet" href="/styles.css?v=10">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
@@ -152,7 +152,7 @@ $schema = [
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=9">
+  <link rel="stylesheet" href="/styles.css?v=10">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/111997516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -163,14 +163,14 @@ $schema = [
       <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
-      <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="#contacts">Контакты</a>
+      <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
     </nav>
     <div class="header-contact"><a href="tel:+79219676115">+7 (921) 967-61-15</a><small>Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="#motor-order">Заказать мотор</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="#contacts">Контакты</a>
+    <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
     <a href="tel:+79219676115">+7 (921) 967-61-15</a>
   </div>
 
@@ -274,7 +274,7 @@ $schema = [
     <a class="footer-brand" href="/" aria-label="Бодрый Боцман — на главную"><img src="/assets/boatswain-face-web.png" alt=""><strong>Бодрый<br>Боцман</strong></a>
     <div><small>Позвонить</small><a href="tel:+79219676115">+7 (921) 967-61-15</a></div>
     <div><small>Написать</small><a href="mailto:info@bodrbo.ru">info@bodrbo.ru</a></div>
-    <p>Санкт-Петербург<br>Ежедневно, 10:00–20:00</p>
+    <p><a href="/#contacts">Тюнинг-центр · Порзолово</a><br>Ежедневно, 10:00–20:00</p>
     <span>© Бодрый Боцман, 2026 · Официальный дилер Marine Rocket</span>
   </footer>
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
