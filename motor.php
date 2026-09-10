@@ -28,7 +28,7 @@ function render_catalog_unavailable(): void
       <meta name="theme-color" content="#071522">
       <title>Каталог обновляется — Бодрый Боцман</title>
       <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=8">
+      <link rel="stylesheet" href="/styles.css?v=9">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
@@ -152,7 +152,7 @@ $schema = [
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=8">
+  <link rel="stylesheet" href="/styles.css?v=9">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/111997516" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -182,8 +182,12 @@ $schema = [
     <section class="motor-product-hero" aria-labelledby="motor-product-title">
       <div class="motor-product-gallery">
         <div class="motor-product-gallery__stage">
+          <div class="motor-product-gallery__brand">
+            <img src="/assets/marine-rocket-logo-black.png" alt="Marine Rocket">
+            <span>Официальный дилер</span>
+          </div>
           <span class="motor-product-gallery__code" aria-hidden="true">MR<br><?= page_escape($power !== '' ? (string) preg_replace('/[^0-9,.]/', '', $power) : '—') ?></span>
-          <img id="motor-product-image" src="<?= page_escape($pictures[0]) ?>" alt="<?= page_escape($title) ?>">
+          <img class="motor-product-gallery__image" id="motor-product-image" src="<?= page_escape($pictures[0]) ?>" alt="<?= page_escape($title) ?>">
           <span class="motor-product-gallery__status<?= empty($product['available']) ? ' motor-product-gallery__status--muted' : '' ?>"><?= page_escape($availabilityText) ?></span>
         </div>
         <?php if (count($pictures) > 1): ?>

@@ -184,6 +184,9 @@ footer small,footer>span{color:#8394a5}
 .nav a[aria-current="page"]{color:#70a8ff}
 .motor-hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(440px,.98fr);min-height:720px;background:#06111e;color:#fff;overflow:hidden}
 .motor-hero__copy{display:flex;flex-direction:column;justify-content:center;padding:90px max(28px,calc((100vw - var(--max))/2)) 90px max(28px,calc((100vw - var(--max))/2));padding-right:clamp(40px,6vw,100px)}
+.motor-brand-sign{display:flex;align-items:center;gap:18px;max-width:520px;margin:0 0 30px;padding:0 0 22px;border-bottom:1px solid #ffffff24}
+.motor-brand-sign img{width:190px;height:auto;flex:0 0 auto}
+.motor-brand-sign span{padding-left:18px;border-left:1px solid #ffffff2b;color:#9eacb9;font:700 9px/1.55 monospace;letter-spacing:.06em;text-transform:uppercase}
 .motor-hero h1{max-width:760px;margin:0;font-size:clamp(55px,6.2vw,92px);line-height:.88;letter-spacing:-.06em;text-transform:uppercase}
 .motor-hero h1 em{color:var(--blue);font-style:normal}
 .motor-hero__lead{max-width:670px;margin:30px 0 0;color:#bac5cf;font-size:18px;line-height:1.65}
@@ -265,7 +268,10 @@ footer small,footer>span{color:#8394a5}
 .motor-product-gallery{display:flex;min-width:0;flex-direction:column;padding:42px clamp(28px,4vw,65px);background:#eef1f3}
 .motor-product-gallery__stage{position:relative;display:flex;flex:1;align-items:center;justify-content:center;min-height:590px;overflow:hidden;background:#eef1f3;isolation:isolate}
 .motor-product-gallery__stage:before{content:"";position:absolute;width:min(70%,520px);aspect-ratio:1;border:1px solid #07152218;border-radius:50%;box-shadow:0 0 0 48px #07152207,0 0 0 96px #07152205}
-.motor-product-gallery__stage>img{position:relative;z-index:2;width:min(72%,560px);height:590px;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.05)}
+.motor-product-gallery__image{position:relative;z-index:2;width:min(72%,560px);height:590px;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.05)}
+.motor-product-gallery__brand{position:absolute;z-index:3;top:0;right:0;display:flex;align-items:center;gap:12px}
+.motor-product-gallery__brand img{width:145px;height:auto}
+.motor-product-gallery__brand span{max-width:105px;padding-left:12px;border-left:1px solid #0715222c;color:#65727d;font:700 8px/1.45 monospace;letter-spacing:.06em;text-transform:uppercase}
 .motor-product-gallery__code{position:absolute;z-index:1;right:2%;bottom:1%;color:#0715220b;font-size:clamp(120px,15vw,245px);font-weight:900;line-height:.58;letter-spacing:-.12em;text-align:right}
 .motor-product-gallery__status{position:absolute;z-index:3;top:0;left:0;padding:10px 13px;background:#0d865a;color:#fff;font-size:10px;font-weight:800;letter-spacing:.055em;text-transform:uppercase}.motor-product-gallery__status--muted{background:#6d7882}
 .motor-product-gallery__thumbs{display:flex;gap:9px;justify-content:center;margin-top:20px;overflow-x:auto;scrollbar-width:none}.motor-product-gallery__thumbs::-webkit-scrollbar{display:none}
@@ -288,8 +294,10 @@ footer small,footer>span{color:#8394a5}
 .dealer-teaser h2{max-width:740px;margin:0;font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase}.dealer-teaser h2 em{color:var(--blue);font-style:normal}
 .dealer-teaser__copy>p:not(.eyebrow){max-width:590px;margin:28px 0 35px;color:#56636f;font-size:17px;line-height:1.65}.dealer-teaser__copy .button{align-self:flex-start}
 .dealer-teaser__visual{position:relative;display:flex;align-items:center;justify-content:center;background:#f5f6f7}
-.dealer-teaser__visual img{position:relative;z-index:2;width:min(64%,390px);height:510px;object-fit:contain;mix-blend-mode:multiply}
-.dealer-teaser__badge{position:absolute;z-index:3;top:35px;left:35px;max-width:155px;padding:16px;background:var(--rocket,#ff623e);color:#fff;font:700 11px/1.45 monospace;text-transform:uppercase}
+.dealer-teaser__motor{position:relative;z-index:2;width:min(64%,390px);height:510px;object-fit:contain;mix-blend-mode:multiply}
+.dealer-teaser__identity{position:absolute;z-index:3;top:34px;left:35px;width:min(230px,calc(100% - 70px));padding:16px 17px 14px;background:#ffffffed;box-shadow:0 12px 35px #07152212}
+.dealer-teaser__identity img{display:block;width:170px;height:auto}
+.dealer-teaser__identity span{display:block;margin-top:9px;padding-top:9px;border-top:1px solid #dbe1e6;color:#5e6a74;font:700 8px/1.4 monospace;letter-spacing:.065em;text-transform:uppercase}
 
 @media(max-width:1180px){
   .motor-hero{grid-template-columns:1.08fr .92fr}.motor-hero__copy{padding-left:28px}.motor-hero__visual img{width:72%}
@@ -304,7 +312,7 @@ footer small,footer>span{color:#8394a5}
   .dealer-teaser{grid-template-columns:1fr}.dealer-teaser__copy{padding:75px 28px}.dealer-teaser__visual{min-height:500px}
 }
 @media(max-width:760px){
-  .motor-hero__copy{padding:62px 20px}.motor-hero h1{font-size:clamp(39px,12.3vw,57px);line-height:.91}.motor-hero__lead{font-size:16px}.motor-hero__actions{flex-direction:column}.motor-hero__actions .button{width:100%}
+  .motor-hero__copy{padding:62px 20px}.motor-brand-sign{gap:12px;margin-bottom:25px;padding-bottom:18px}.motor-brand-sign img{width:148px}.motor-brand-sign span{padding-left:12px;font-size:8px}.motor-hero h1{font-size:clamp(39px,12.3vw,57px);line-height:.91}.motor-hero__lead{font-size:16px}.motor-hero__actions{flex-direction:column}.motor-hero__actions .button{width:100%}
   .motor-hero__facts{gap:0}.motor-hero__facts div{padding:20px 9px 0}.motor-hero__facts dt{font-size:18px}.motor-hero__facts dd{font-size:9px}
   .motor-hero__visual{min-height:500px}.motor-hero__visual img{width:68%;height:440px}.motor-hero__stamp{top:24px;right:20px;width:86px;height:86px;padding:19px 10px;font-size:9px}.motor-hero__visual>p{right:20px;bottom:22px}.motor-hero__code{left:5px;font-size:155px}
   .dealer-proof,.motor-catalog,.motor-service-band{padding:70px 20px}.dealer-proof h2,.motor-catalog__heading h2,.motor-service-band h2{font-size:37px;line-height:.96}
@@ -312,11 +320,11 @@ footer small,footer>span{color:#8394a5}
   .motor-catalog__heading{display:block}.motor-catalog__meta{align-items:flex-start;margin-top:25px;text-align:left}.motor-filters{grid-template-columns:1fr;margin-top:38px}.motor-search{grid-column:auto}.motor-categories{flex-wrap:nowrap;margin-right:-20px;padding-right:20px;overflow-x:auto;scrollbar-width:none}.motor-categories::-webkit-scrollbar{display:none}.motor-categories button{flex:none}
   .motor-catalog__loading{grid-template-columns:1fr}.motor-catalog__loading span{height:420px}.motor-catalog__loading span:nth-child(n+2){display:none}.motor-grid{grid-template-columns:1fr;margin-top:32px}.motor-card__media{height:330px}.motor-card__title{min-height:0}
   .motor-service-band__mark{display:none}
-  .motor-breadcrumbs{padding:17px 20px}.motor-product-gallery{min-height:520px;padding:24px 20px}.motor-product-gallery__stage{min-height:430px}.motor-product-gallery__stage>img{width:78%;height:420px}.motor-product-gallery__code{font-size:130px}.motor-product-gallery__thumbs{justify-content:flex-start}.motor-product-copy{padding:60px 20px 70px}.motor-product-copy__back{margin-bottom:35px}.motor-product-copy h1{font-size:clamp(39px,12vw,55px)}.motor-product-copy__lead{font-size:15px}.motor-product-actions{flex-direction:column}.motor-product-actions .button{width:100%}.motor-product-specifications{grid-template-columns:1fr;gap:42px;padding:70px 20px}.motor-product-specifications__heading{grid-column:auto}.motor-product-specifications__heading h2{font-size:37px}.motor-product-plate{max-width:none}.motor-product-specifications__list>div{gap:15px}
-  .dealer-teaser__copy{padding:70px 20px}.dealer-teaser h2{font-size:37px}.dealer-teaser__visual{min-height:460px}.dealer-teaser__visual img{height:440px;width:68%}.dealer-teaser__badge{top:22px;left:20px}
+  .motor-breadcrumbs{padding:17px 20px}.motor-product-gallery{min-height:520px;padding:24px 20px}.motor-product-gallery__stage{min-height:430px}.motor-product-gallery__image{width:78%;height:420px}.motor-product-gallery__brand{top:0;right:0;gap:8px}.motor-product-gallery__brand img{width:112px}.motor-product-gallery__brand span{max-width:82px;padding-left:8px;font-size:7px}.motor-product-gallery__code{font-size:130px}.motor-product-gallery__thumbs{justify-content:flex-start}.motor-product-copy{padding:60px 20px 70px}.motor-product-copy__back{margin-bottom:35px}.motor-product-copy h1{font-size:clamp(39px,12vw,55px)}.motor-product-copy__lead{font-size:15px}.motor-product-actions{flex-direction:column}.motor-product-actions .button{width:100%}.motor-product-specifications{grid-template-columns:1fr;gap:42px;padding:70px 20px}.motor-product-specifications__heading{grid-column:auto}.motor-product-specifications__heading h2{font-size:37px}.motor-product-plate{max-width:none}.motor-product-specifications__list>div{gap:15px}
+  .dealer-teaser__copy{padding:70px 20px}.dealer-teaser h2{font-size:37px}.dealer-teaser__visual{min-height:560px;align-items:flex-end}.dealer-teaser__motor{height:430px;width:72%}.dealer-teaser__identity{top:22px;left:20px;width:205px;padding:13px 14px}.dealer-teaser__identity img{width:145px}
 }
 @media(max-width:380px){
-  .motor-hero h1{font-size:37px}.motor-hero__facts{grid-template-columns:1fr}.motor-hero__facts div,.motor-hero__facts div:first-child{padding:14px 0;border-right:0;border-bottom:1px solid #ffffff24}.motor-hero__facts div:last-child{border-bottom:0}
+  .motor-brand-sign img{width:135px}.motor-brand-sign span{font-size:7px}.motor-product-gallery__brand img{width:120px}.motor-product-gallery__brand span{display:none}.motor-hero h1{font-size:37px}.motor-hero__facts{grid-template-columns:1fr}.motor-hero__facts div,.motor-hero__facts div:first-child{padding:14px 0;border-right:0;border-bottom:1px solid #ffffff24}.motor-hero__facts div:last-child{border-bottom:0}
   .motor-card__content{padding:23px 18px}.motor-card__actions{grid-template-columns:1fr}.motor-card__details{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.motor-catalog__loading span{animation:none}}
