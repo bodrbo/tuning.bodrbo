@@ -21,6 +21,9 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} \s/+motors\.html(?:[?\s]) [NC]
   RewriteRule ^motors\.html$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
 
+  RewriteCond %{THE_REQUEST} \s/+privacy\.html(?:[?\s]) [NC]
+  RewriteRule ^privacy\.html$ /privacy/ [R=301,L,NE]
+
   RewriteCond %{THE_REQUEST} \s/+motor\.php(?:[?\s]) [NC]
   RewriteRule ^motor\.php$ /lodochnye-motory-marine-rocket/ [R=301,L,NE,QSD]
 
@@ -49,12 +52,14 @@ ErrorDocument 404 /404.html
 
   # У всех публичных разделов один канонический формат — с завершающим слешем.
   RewriteRule ^proekty$ /proekty/ [R=301,L,NE]
+  RewriteRule ^privacy$ /privacy/ [R=301,L,NE]
   RewriteRule ^lodochnye-motory-marine-rocket$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
   RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodochnye-motory-marine-rocket/$1/ [R=301,L,NE]
   RewriteRule ^proekty/(vosstanovlenie-katera-posle-utopleniya|tyuning-katera-mariah-s21le|pokraska-yakhty-macgregor-26|tyuning-katera-salyut-585nt|remont-falshkilya-gladius-520)$ /proekty/$1/ [R=301,L,NE]
 
   # Чистые URL обслуживаются существующими HTML-шаблонами без изменения адреса.
   RewriteRule ^sitemap-motory\.xml$ motor-sitemap.php [L]
+  RewriteRule ^privacy/?$ privacy.html [L]
   RewriteRule ^proekty/?$ projects.html [L]
   RewriteRule ^lodochnye-motory-marine-rocket/?$ motors.html [L]
   RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ motor.php?slug=$1 [L,QSA]

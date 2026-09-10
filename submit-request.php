@@ -88,6 +88,7 @@ $phone = post_text('phone');
 $boatModel = post_text('boat_model');
 $message = post_text('message');
 $sourceUrl = post_text('source_url');
+$privacyConsent = post_text('privacy_consent');
 
 $errors = [];
 if (!preg_match('/^[A-Za-z0-9._:-]{8,128}$/', $requestId)) {
@@ -108,6 +109,9 @@ if (text_length($message) > 2000) {
 }
 if (text_length($sourceUrl) > 500) {
     $errors[] = 'Некорректный адрес страницы';
+}
+if ($privacyConsent !== '1') {
+    $errors[] = 'Необходимо согласие с политикой обработки персональных данных';
 }
 if ($errors) {
     respond_json(422, ['ok' => false, 'message' => $errors[0]]);

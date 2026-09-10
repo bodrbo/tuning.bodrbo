@@ -28,7 +28,7 @@ function render_catalog_unavailable(): void
       <meta name="theme-color" content="#071522">
       <title>Каталог обновляется — Бодрый Боцман</title>
       <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=10">
+      <link rel="stylesheet" href="/styles.css?v=11">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
@@ -152,7 +152,7 @@ $schema = [
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=10">
+  <link rel="stylesheet" href="/styles.css?v=11">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -265,7 +265,7 @@ $schema = [
         <label class="form-wide">Катер или выбранный мотор<input name="boat_model" autocomplete="off" value="Marine Rocket <?= page_escape((string) $product['model']) ?>"></label>
         <label class="form-wide">Что важно учесть<textarea name="message" rows="3">Интересует мотор Marine Rocket <?= page_escape((string) $product['model']) ?>. Нужен подбор под катер и установка.</textarea></label>
         <button class="button form-wide" type="submit">Получить подбор и расчёт</button>
-        <p class="form-note form-wide">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+        <label class="form-consent form-wide"><input type="checkbox" name="privacy_consent" value="1" required><span>Я ознакомлен(а) и согласен(а) с <a href="/privacy/" target="_blank" rel="noopener">политикой обработки персональных данных</a></span></label>
       </form>
     </section>
   </main>
@@ -275,7 +275,7 @@ $schema = [
     <div><small>Позвонить</small><a href="tel:+79219676115">+7 (921) 967-61-15</a></div>
     <div><small>Написать</small><a href="mailto:info@bodrbo.ru">info@bodrbo.ru</a></div>
     <p><a href="/#contacts">Тюнинг-центр · Порзолово</a><br>Ежедневно, 10:00–20:00</p>
-    <span>© Бодрый Боцман, 2026 · Официальный дилер Marine Rocket</span>
+    <span>© Бодрый Боцман, 2026 · Официальный дилер Marine Rocket · <a href="/privacy/">Политика обработки персональных данных</a></span>
   </footer>
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
   <script src="/motor-page.js?v=1"></script>
