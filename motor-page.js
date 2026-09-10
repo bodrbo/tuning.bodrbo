@@ -28,7 +28,7 @@ shareButton?.addEventListener('click', async () => {
       }, 2200);
     }
     if (typeof window.ym === 'function') {
-      window.ym(111997516, 'reachGoal', 'motor_share', { motor: shareData.title });
+      window.ym(104372402, 'reachGoal', 'motor_share', { motor: shareData.title });
     }
   } catch (error) {
     if (error?.name !== 'AbortError') {

@@ -180,7 +180,7 @@ if (catalogGrid) {
       messageField.value = `Интересует мотор Marine Rocket ${product.model}. Нужен подбор под катер и установка.`;
     }
     if (typeof window.ym === 'function') {
-      window.ym(111997516, 'reachGoal', 'motor_request_click', { motor: product.model });
+      window.ym(104372402, 'reachGoal', 'motor_request_click', { motor: product.model });
     }
     requestSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     window.setTimeout(() => leadForm?.elements.name?.focus({ preventScroll: true }), 500);
