@@ -191,11 +191,13 @@ function admin_validate_projects(array $input, array $existing): array
             'title' => admin_text($project['title'] ?? '', 240, true),
             'shortTitle' => admin_text($project['shortTitle'] ?? '', 180, true),
             'subtitle' => admin_text($project['subtitle'] ?? '', 700, true),
+            'cardSummary' => admin_text($project['cardSummary'] ?? '', 700, true),
             'category' => admin_text($project['category'] ?? '', 180, true),
             'cover' => admin_safe_image($project['cover'] ?? ''),
+            'cardImage' => admin_safe_image($project['cardImage'] ?? ($current['cardImage'] ?? '')),
             'facts' => $facts,
-            'summary' => admin_text($project['summary'] ?? '', 5000, true),
-            'result' => admin_text($project['result'] ?? '', 5000, true),
+            'summary' => admin_text($project['summary'] ?? '', 5000),
+            'result' => admin_text($project['result'] ?? '', 5000),
             'steps' => $steps,
         ];
     }

@@ -41,25 +41,25 @@ if (!project) {
           <p class="eyebrow">${project.category}</p>
           <h1>${project.title}</h1>
           <p class="case-hero__lead">${project.subtitle}</p>
-          <div class="case-facts">${project.facts.map(fact => `<span>${fact}</span>`).join('')}</div>
+          ${project.facts?.length ? `<div class="case-facts">${project.facts.map(fact => `<span>${fact}</span>`).join('')}</div>` : ''}
         </div>
         <figure><img src="/${project.cover}" alt="${project.shortTitle}"></figure>
       </header>
 
-      <section class="case-brief">
+      ${project.summary ? `<section class="case-brief">
         <div><p class="eyebrow">Исходная задача</p><h2>Не замаскировать проблему,<br>а решить её инженерно</h2></div>
         <p>${project.summary}</p>
-      </section>
+      </section>` : ''}
 
       <section class="case-story">
         <div class="case-story__heading"><p class="eyebrow">Ход проекта</p><h2>От диагностики<br>до результата</h2></div>
         <div class="case-steps">${steps}</div>
       </section>
 
-      <section class="case-result">
+      ${project.result ? `<section class="case-result">
         <p class="eyebrow">Результат</p>
         <h2>${project.result}</h2>
         <div><a class="button" href="/#request">Обсудить похожую задачу</a><a class="button button--ghost" href="/proekty/">Другие проекты</a></div>
-      </section>
+      </section>` : ''}
     </article>`;
 }

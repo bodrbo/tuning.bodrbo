@@ -90,7 +90,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
       <h1>Защитите админку паролем</h1>
       <p>Создайте файл <code>~/tuning.bodrbo.ru/admin-config.php</code> за пределами <code>public_html</code>.</p>
       <ol>
-        <li>Создайте случайный пароль и хеш: <code>php -r '$p=bin2hex(random_bytes(12)); echo "PASSWORD=".$p.PHP_EOL."HASH=".password_hash($p,PASSWORD_DEFAULT).PHP_EOL;'</code></li>
+        <li>Создайте случайный пароль и хеш: <code>php8.3 -r '$p=bin2hex(random_bytes(12)); echo "PASSWORD=".$p.PHP_EOL."HASH=".password_hash($p,PASSWORD_DEFAULT).PHP_EOL;'</code></li>
         <li>Скопируйте <code>admin-config.example.php</code> на уровень выше <code>public_html</code>.</li>
         <li>Вставьте хеш вместо <code>PASTE_PASSWORD_HASH_HERE</code> и обновите страницу.</li>
       </ol>
@@ -184,12 +184,13 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
                   <h2>Обложка и вводная</h2>
                   <div class="field-grid">
                     <label class="field-wide">Заголовок статьи<input data-project-field="title" value="<?= admin_escape((string) ($project['title'] ?? '')) ?>" required></label>
-                    <label>Короткий заголовок<input data-project-field="shortTitle" value="<?= admin_escape((string) ($project['shortTitle'] ?? '')) ?>" required></label>
+                    <label>Заголовок карточки<input data-project-field="shortTitle" value="<?= admin_escape((string) ($project['shortTitle'] ?? '')) ?>" required></label>
                     <label>Категория<input data-project-field="category" value="<?= admin_escape((string) ($project['category'] ?? '')) ?>" required></label>
                     <label class="field-wide">Подзаголовок<textarea data-project-field="subtitle" rows="3" required><?= admin_escape((string) ($project['subtitle'] ?? '')) ?></textarea></label>
+                    <label class="field-wide">Описание в карточке<textarea data-project-field="cardSummary" rows="3" required><?= admin_escape((string) ($project['cardSummary'] ?? $project['subtitle'] ?? '')) ?></textarea></label>
                     <label class="field-wide">Факты <small>один на строку</small><textarea data-project-field="facts" rows="3"><?= admin_escape(implode("\n", is_array($project['facts'] ?? null) ? $project['facts'] : [])) ?></textarea></label>
-                    <label class="field-wide">Исходная задача<textarea data-project-field="summary" rows="5" required><?= admin_escape((string) ($project['summary'] ?? '')) ?></textarea></label>
-                    <label class="field-wide">Результат<textarea data-project-field="result" rows="5" required><?= admin_escape((string) ($project['result'] ?? '')) ?></textarea></label>
+                    <label class="field-wide">Исходная задача <small>необязательно</small><textarea data-project-field="summary" rows="5"><?= admin_escape((string) ($project['summary'] ?? '')) ?></textarea></label>
+                    <label class="field-wide">Результат <small>необязательно</small><textarea data-project-field="result" rows="5"><?= admin_escape((string) ($project['result'] ?? '')) ?></textarea></label>
                   </div>
                   <div class="image-control" data-image-control>
                     <img data-image-preview src="<?= admin_escape(admin_image_url((string) ($project['cover'] ?? ''), (string) $key)) ?>" alt="">

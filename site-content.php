@@ -68,10 +68,10 @@ window.BODRBO_PROJECTS = <?= json_encode($projects, $flags) ?>;
       const category = card.querySelector('[data-case-category]');
       const image = card.querySelector('[data-case-image]');
       if (title) title.textContent = project.shortTitle || project.title;
-      if (summary) summary.textContent = project.subtitle || project.summary;
+      if (summary) summary.textContent = project.cardSummary || project.subtitle || project.summary;
       if (category) category.textContent = project.category || '';
-      if (image && project.cover) {
-        image.src = `/${String(project.cover).replace(/^\//, '')}`;
+      if (image && (project.cardImage || project.cover)) {
+        image.src = `/${String(project.cardImage || project.cover).replace(/^\//, '')}`;
         image.alt = project.shortTitle || project.title || '';
       }
       if (project.slug && card.tagName === 'A') card.href = `/proekty/${project.slug}/`;

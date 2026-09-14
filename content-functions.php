@@ -11,6 +11,11 @@ function content_runtime_dir(): string
     return dirname(content_project_root()) . '/content-data';
 }
 
+function content_projects_version(): string
+{
+    return 'tilda-exact-20260914';
+}
+
 function content_site_defaults(): array
 {
     return [
@@ -54,8 +59,10 @@ function content_load_site(): array
 
 function content_load_projects(): array
 {
-    $runtime = @file_get_contents(content_runtime_dir() . '/projects.json');
-    if ($runtime !== false) {
+    $runtimeDirectory = content_runtime_dir();
+    $runtime = @file_get_contents($runtimeDirectory . '/projects.json');
+    $runtimeVersion = @file_get_contents($runtimeDirectory . '/projects.version');
+    if ($runtime !== false && trim((string) $runtimeVersion) === content_projects_version()) {
         $projects = json_decode($runtime, true);
         if (is_array($projects)) {
             return $projects;
@@ -146,4 +153,5 @@ function content_save_projects(array $projects): void
         throw new RuntimeException('Не удалось собрать данные кейсов.');
     }
     content_atomic_write($path, $encoded . "\n");
+    content_atomic_write(content_runtime_dir() . '/projects.version', content_projects_version() . "\n");
 }

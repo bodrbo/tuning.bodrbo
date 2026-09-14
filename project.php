@@ -143,17 +143,17 @@ $schema = [
           <p class="eyebrow"><?= project_escape((string) $project['category']) ?></p>
           <h1><?= project_escape((string) $project['title']) ?></h1>
           <p class="case-hero__lead"><?= project_escape((string) $project['subtitle']) ?></p>
-          <div class="case-facts">
+          <?php if (!empty($project['facts'])): ?><div class="case-facts">
             <?php foreach ($project['facts'] as $fact): ?><span><?= project_escape((string) $fact) ?></span><?php endforeach; ?>
-          </div>
+          </div><?php endif; ?>
         </div>
         <figure><img src="/<?= project_escape((string) $project['cover']) ?>" alt="<?= project_escape((string) $project['shortTitle']) ?>"></figure>
       </header>
 
-      <section class="case-brief">
+      <?php if (!empty($project['summary'])): ?><section class="case-brief">
         <div><p class="eyebrow">Исходная задача</p><h2>Не замаскировать проблему,<br>а решить её инженерно</h2></div>
         <p><?= project_escape((string) $project['summary']) ?></p>
-      </section>
+      </section><?php endif; ?>
 
       <section class="case-story">
         <div class="case-story__heading"><p class="eyebrow">Ход проекта</p><h2>От диагностики<br>до результата</h2></div>
@@ -171,11 +171,11 @@ $schema = [
         </div>
       </section>
 
-      <section class="case-result">
+      <?php if (!empty($project['result'])): ?><section class="case-result">
         <p class="eyebrow">Результат</p>
         <h2><?= project_escape((string) $project['result']) ?></h2>
         <div><a class="button" href="/#request">Обсудить похожую задачу</a><a class="button button--ghost" href="/proekty/">Другие проекты</a></div>
-      </section>
+      </section><?php endif; ?>
     </article>
   </main>
 

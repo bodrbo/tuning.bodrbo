@@ -8,7 +8,7 @@
 
 ```bash
 cd ~/tuning.bodrbo.ru
-php -r '$p=bin2hex(random_bytes(12)); echo "PASSWORD=".$p.PHP_EOL."HASH=".password_hash($p,PASSWORD_DEFAULT).PHP_EOL;'
+php8.3 -r '$p=bin2hex(random_bytes(12)); echo "PASSWORD=".$p.PHP_EOL."HASH=".password_hash($p,PASSWORD_DEFAULT).PHP_EOL;'
 ```
 
 Команда выведет случайный пароль в строке `PASSWORD` и его хеш в строке `HASH`. Сохраните пароль в менеджере паролей.
@@ -34,11 +34,11 @@ chmod 700 ~/tuning.bodrbo.ru/content-data
 ## 4. Проверить PHP
 
 ```bash
-php -l public_html/admin/index.php
-php -l public_html/admin/upload.php
-php -l public_html/admin/bootstrap.php
-php -l public_html/content-functions.php
-php -l public_html/site-content.php
+php8.3 -l public_html/admin/index.php
+php8.3 -l public_html/admin/upload.php
+php8.3 -l public_html/admin/bootstrap.php
+php8.3 -l public_html/content-functions.php
+php8.3 -l public_html/site-content.php
 ```
 
 Во всех случаях должно появиться `No syntax errors detected`. Затем откройте `/admin/`, войдите с исходным паролем и сохраните тестовое изменение.
@@ -47,6 +47,7 @@ php -l public_html/site-content.php
 
 - `~/tuning.bodrbo.ru/content-data/site.json` — контакты и график;
 - `~/tuning.bodrbo.ru/content-data/projects.json` — тексты и порядок этапов;
+- `~/tuning.bodrbo.ru/content-data/projects.version` — версия структуры кейсов;
 - `~/tuning.bodrbo.ru/content-data/backups/` — предыдущие версии;
 - `public_html/assets/projects/<кейс>/uploads/` — загруженные фотографии.
 
