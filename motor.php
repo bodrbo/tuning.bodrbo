@@ -68,7 +68,7 @@ if ($product === null) {
     exit;
 }
 
-$siteUrl = 'https://tuning.bodrbo.ru';
+$siteUrl = 'https://bodrbo-tuning.ru';
 $canonicalUrl = $siteUrl . '/lodochnye-motory-marine-rocket/' . $product['slug'] . '/';
 $title = 'Лодочный мотор Marine Rocket ' . $product['model'];
 $price = motor_price((int) $product['price']);

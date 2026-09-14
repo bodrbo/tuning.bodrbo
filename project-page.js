@@ -3,7 +3,7 @@ const pathSlug = decodeURIComponent(window.location.pathname.replace(/\/+$/, '')
 const pathProject = Object.entries(PROJECTS).find(([, item]) => item.slug === pathSlug);
 const caseKey = pathProject?.[0] || new URLSearchParams(window.location.search).get('case');
 const project = PROJECTS[caseKey];
-const siteUrl = 'https://tuning.bodrbo.ru';
+const siteUrl = 'https://bodrbo-tuning.ru';
 
 if (!project) {
   document.title = 'Проект не найден — Бодрый Боцман';

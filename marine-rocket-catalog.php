@@ -70,7 +70,7 @@ function fetch_catalog_feed(): string
         CURLOPT_FOLLOWLOCATION => false,
         CURLOPT_CONNECTTIMEOUT => 5,
         CURLOPT_TIMEOUT => 25,
-        CURLOPT_USERAGENT => 'BodryBoatswainCatalog/1.0 (+https://tuning.bodrbo.ru)',
+        CURLOPT_USERAGENT => 'BodryBoatswainCatalog/1.0 (+https://bodrbo-tuning.ru)',
         CURLOPT_HTTPHEADER => ['Accept: application/xml,text/xml;q=0.9,*/*;q=0.5'],
         CURLOPT_WRITEFUNCTION => static function ($handle, string $chunk) use (&$body): int {
             if (strlen($body) + strlen($chunk) > MARINE_ROCKET_MAX_FEED_BYTES) {

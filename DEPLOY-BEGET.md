@@ -1,6 +1,6 @@
-# Размещение `tuning.bodrbo.ru` на Beget
+# Размещение `bodrbo-tuning.ru` на Beget
 
-`tuning.bodrbo.ru` технически является поддоменом домена `bodrbo.ru`. Интерфейс сайта статический: база данных, CMS и Node.js на сервере не нужны. PHP используется для отправки формы и безопасного обновления каталога Marine Rocket; на сервере должны быть доступны расширения cURL и SimpleXML. Настройка формы описана в [`INTEGRATION-BODRY-BUSINESS.md`](INTEGRATION-BODRY-BUSINESS.md).
+Главный публичный адрес сайта — `bodrbo-tuning.ru`. Директория на Beget может по-прежнему называться `tuning.bodrbo.ru`: её имя не влияет на адрес сайта. PHP используется для отправки формы, серверных страниц проектов и безопасного обновления каталога Marine Rocket; на сервере должны быть доступны расширения cURL и SimpleXML. Настройка формы описана в [`INTEGRATION-BODRY-BUSINESS.md`](INTEGRATION-BODRY-BUSINESS.md).
 
 Если сайт будет обновляться из GitHub командой `git pull`, используйте отдельную инструкцию [`GIT-BEGET.md`](GIT-BEGET.md). Для постоянной работы это удобнее ручной загрузки ZIP-архивов.
 
@@ -19,15 +19,15 @@
 ## 1. Создать поддомен и сайт
 
 1. Откройте панель Beget → **Домены и поддомены**.
-2. Добавьте `tuning.bodrbo.ru`.
-3. Выберите **Создать новый сайт** или создайте сайт в разделе **Сайты** и прикрепите к нему этот поддомен.
+2. Добавьте `bodrbo-tuning.ru` и `www.bodrbo-tuning.ru`.
+3. Прикрепите оба домена к существующему сайту, директория которого содержит этот репозиторий.
 4. В результате должна появиться директория примерно такого вида:
 
    ```text
    ~/tuning.bodrbo.ru/public_html/
    ```
 
-Если DNS домена `bodrbo.ru` обслуживается Beget, настройки поддомена обычно создаются автоматически. Если DNS находится у другого провайдера, сначала узнайте IP сервера в разделе **DNS** Beget, затем у текущего DNS-провайдера создайте A-запись `tuning` на этот IP.
+Корневой домен и `www` должны указывать на IP сервера Beget. После `git pull` файл `.htaccess` перенаправит `www.bodrbo-tuning.ru` на главное зеркало `bodrbo-tuning.ru`.
 
 ## 2. Загрузить сборку
 
@@ -42,7 +42,7 @@
 ## 3. Подключить HTTPS
 
 1. После того как поддомен начал открываться, перейдите в **Домены и поддомены**.
-2. Откройте управление SSL для `tuning.bodrbo.ru`.
+2. Откройте управление SSL для `bodrbo-tuning.ru` и `www.bodrbo-tuning.ru`.
 3. Закажите бесплатный стандартный сертификат Let’s Encrypt.
 4. Дождитесь выпуска и установки сертификата.
 5. В разделе **Сайты** включите автоматическое перенаправление с HTTP на HTTPS.
@@ -53,16 +53,16 @@
 
 Откройте:
 
-- `https://tuning.bodrbo.ru/`
-- `https://tuning.bodrbo.ru/proekty/`
-- `https://tuning.bodrbo.ru/proekty/vosstanovlenie-katera-posle-utopleniya/`
-- `https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/`
-- `https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/mref90fel-t/`
-- `https://tuning.bodrbo.ru/marine-rocket-catalog.php` — должен вернуть JSON с `"ok":true` и массивом `products`;
-- `https://tuning.bodrbo.ru/robots.txt`
-- `https://tuning.bodrbo.ru/sitemap.xml`
-- `https://tuning.bodrbo.ru/sitemap-motory.xml` — должен вернуть XML со страницами всех актуальных моторов;
-- `https://tuning.bodrbo.ru/submit-request.php` — запрос методом GET должен вернуть `405`;
+- `https://bodrbo-tuning.ru/`
+- `https://bodrbo-tuning.ru/proekty/`
+- `https://bodrbo-tuning.ru/proekty/vosstanovlenie-katera-posle-utopleniya/`
+- `https://bodrbo-tuning.ru/lodochnye-motory-marine-rocket/`
+- `https://bodrbo-tuning.ru/lodochnye-motory-marine-rocket/mref90fel-t/`
+- `https://bodrbo-tuning.ru/marine-rocket-catalog.php` — должен вернуть JSON с `"ok":true` и массивом `products`;
+- `https://bodrbo-tuning.ru/robots.txt`
+- `https://bodrbo-tuning.ru/sitemap.xml`
+- `https://bodrbo-tuning.ru/sitemap-motory.xml` — должен вернуть XML со страницами всех актуальных моторов;
+- `https://bodrbo-tuning.ru/submit-request.php` — запрос методом GET должен вернуть `405`;
 - любой несуществующий адрес — должна показаться фирменная страница 404.
 
 Проверьте мобильное меню, переходы по карточкам и страницам моторов, телефонные и почтовые ссылки, а также загрузку фотографий кейсов.

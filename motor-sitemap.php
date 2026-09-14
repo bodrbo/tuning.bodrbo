@@ -17,7 +17,7 @@ try {
     exit;
 }
 
-$siteUrl = 'https://tuning.bodrbo.ru/lodochnye-motory-marine-rocket/';
+$siteUrl = 'https://bodrbo-tuning.ru/lodochnye-motory-marine-rocket/';
 $lastModified = gmdate('Y-m-d', strtotime((string) ($catalog['fetched_at'] ?? 'now')) ?: time());
 
 echo '<?xml version="1.0" encoding="UTF-8"?>', "\n";

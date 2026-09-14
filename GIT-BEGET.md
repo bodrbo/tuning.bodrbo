@@ -1,4 +1,4 @@
-# GitHub → Beget: обновление `tuning.bodrbo.ru` через SSH
+# GitHub → Beget: обновление `bodrbo-tuning.ru` через SSH
 
 Ниже — рекомендуемая схема для этого статического сайта:
 
@@ -12,7 +12,7 @@
 
 - репозиторий: `https://github.com/bodrbo/tuning.bodrbo`;
 - ветка публикации: `main`;
-- созданный в Beget сайт для `tuning.bodrbo.ru`;
+- созданный в Beget сайт для `bodrbo-tuning.ru` (директория может называться `tuning.bodrbo.ru`);
 - логин Beget и адрес SSH-сервера из блока **Тех. информация** в панели.
 
 В командах ниже замените:
@@ -123,7 +123,7 @@ git status
 git log -1 --oneline
 ```
 
-Откройте <https://tuning.bodrbo.ru/> в браузере. Старую папку `public_html.before-git-...` пока сохраните: это резервная копия для первого запуска.
+Откройте <https://bodrbo-tuning.ru/> в браузере. Старую папку `public_html.before-git-...` пока сохраните: это резервная копия для первого запуска.
 
 ## 5. Обычное обновление сайта
 
@@ -154,10 +154,10 @@ git log -1 --oneline
 
 Затем откройте в браузере:
 
-- `https://tuning.bodrbo.ru/` — должна открыться новая версия;
-- `https://tuning.bodrbo.ru/.git/config` — должен вернуться ответ 404, а не содержимое Git-конфигурации;
-- `https://tuning.bodrbo.ru/proekty/` — должны открыться проекты;
-- `https://tuning.bodrbo.ru/projects.html` — должен перенаправить на `/proekty/` с кодом 301.
+- `https://bodrbo-tuning.ru/` — должна открыться новая версия;
+- `https://bodrbo-tuning.ru/.git/config` — должен вернуться ответ 404, а не содержимое Git-конфигурации;
+- `https://bodrbo-tuning.ru/proekty/` — должны открыться проекты;
+- `https://bodrbo-tuning.ru/projects.html` — должен перенаправить на `/proekty/` с кодом 301.
 
 Защита `.git` уже добавлена в `.htaccess` проекта. Не удаляйте это правило, пока репозиторий находится внутри `public_html`.
 

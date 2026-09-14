@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tuning.bodrbo.ru/sitemap.xml
-Sitemap: https://tuning.bodrbo.ru/sitemap-motory.xml
+Sitemap: https://bodrbo-tuning.ru/sitemap.xml
+Sitemap: https://bodrbo-tuning.ru/sitemap-motory.xml
