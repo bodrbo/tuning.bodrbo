@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/marine-rocket-catalog.php';
+require_once __DIR__ . '/content-functions.php';
 
 function page_escape(string $value): string
 {
@@ -38,7 +39,8 @@ function render_catalog_unavailable(): void
           <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
         </a>
       </header>
-      <main><section class="case-missing"><p class="eyebrow">Обновляем данные</p><h1>Каталог временно недоступен</h1><p>Позвоните нам по номеру +7 (921) 967-61-15 — подберём мотор вручную.</p><a class="button" href="/lodochnye-motory-marine-rocket/">Вернуться в каталог</a></section></main>
+      <main><section class="case-missing"><p class="eyebrow">Обновляем данные</p><h1>Каталог временно недоступен</h1><p>Позвоните нам по номеру <a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a> — подберём мотор вручную.</p><a class="button" href="/lodochnye-motory-marine-rocket/">Вернуться в каталог</a></section></main>
+      <script src="/site-content.php"></script>
     </body>
     </html>
     <?php
@@ -165,13 +167,13 @@ $schema = [
     <nav class="nav" aria-label="Основная навигация">
       <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
     </nav>
-    <div class="header-contact"><a href="tel:+79219676115">+7 (921) 967-61-15</a><small>Ежедневно с 10:00 до 20:00</small></div>
+    <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="#motor-order">Заказать мотор</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu">
     <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="/lodochnye-motory-marine-rocket/" aria-current="page">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
-    <a href="tel:+79219676115">+7 (921) 967-61-15</a>
+    <a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a>
   </div>
 
   <main>
@@ -272,12 +274,13 @@ $schema = [
 
   <footer id="contacts">
     <a class="footer-brand" href="/" aria-label="Бодрый Боцман — на главную"><img src="/assets/boatswain-face-web.png" alt=""><strong>Бодрый<br>Боцман</strong></a>
-    <div><small>Позвонить</small><a href="tel:+79219676115">+7 (921) 967-61-15</a></div>
-    <div><small>Написать</small><a href="mailto:info@bodrbo.ru">info@bodrbo.ru</a></div>
-    <p><a href="/#contacts">Тюнинг-центр · Порзолово</a><br>Ежедневно, 10:00–20:00</p>
+    <div><small>Позвонить</small><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a></div>
+    <div><small>Написать</small><a href="mailto:info@bodrbo.ru" data-contact="email">info@bodrbo.ru</a></div>
+    <p><a href="/#contacts" data-contact="location-label">Тюнинг-центр · Порзолово</a><br><span data-contact="hours-short">Ежедневно, 10:00–20:00</span></p>
     <span>© Бодрый Боцман, 2026 · Официальный дилер Marine Rocket · <a href="/privacy/">Политика обработки персональных данных</a></span>
   </footer>
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
+  <script src="/site-content.php"></script>
   <script src="/motor-page.js?v=1"></script>
   <script src="/script.js?v=3"></script>
 </body>

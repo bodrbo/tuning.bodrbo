@@ -1,0 +1,19 @@
+{
+    "phone_display": "+7 (921) 967-61-15",
+    "phone_href": "+79219676115",
+    "email": "info@bodrbo.ru",
+    "hours_header": "Ежедневно с 10:00 до 20:00",
+    "hours_short": "Ежедневно, 10:00–20:00",
+    "opening_days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "10:00",
+    "closes": "20:00",
+    "location_label": "Тюнинг-центр · Порзолово",
+    "location_heading": "Тюнинг-центр\nв Порзолово",
+    "address": "Ленинградская область, Ломоносовский район,\nНизинское сельское поселение,\nпроизводственно-административная зона Порзолово",
+    "route_url": "https://yandex.ru/maps/2/saint-petersburg/?ll=29.757679%2C59.835349&mode=routes&rtext=59.835158%2C29.745648~59.835474%2C29.759391&rtt=auto&ruri=~&z=15.17",
+    "map_embed_url": "https://yandex.ru/map-widget/v1/?ll=29.752520%2C59.835316&mode=routes&rtext=59.835158%2C29.745648~59.835474%2C29.759391&rtt=auto&ruri=~&z=14.2",
+    "latitude": "59.835474",
+    "longitude": "29.759391",
+    "telegram_url": "",
+    "whatsapp_url": ""
+}

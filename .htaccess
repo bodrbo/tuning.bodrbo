@@ -1,5 +1,5 @@
 Options -Indexes
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 AddDefaultCharset UTF-8
 
 ErrorDocument 404 /404.html
@@ -8,6 +8,10 @@ ErrorDocument 404 /404.html
 # посетителям, даже если они запросят известный путь вручную.
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Данные админки, резервные копии и PHP-библиотека не являются публичными.
+  RewriteRule ^content(?:/|$) - [F,L,NC]
+  RewriteRule ^(?:content-functions|admin-config(?:\.example)?)\.php$ - [R=404,L,NC]
 
   # Единственное главное зеркало сайта — без www, на основном домене.
   RewriteCond %{HTTP_HOST} ^(?:www\.bodrbo-tuning\.ru|tuning\.bodrbo\.ru)$ [NC]
@@ -87,6 +91,12 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "DENY"
+</IfModule>
+
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(?:admin-config|integration-config)\.php$">
+    Require all denied
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>

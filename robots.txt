@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 Sitemap: https://bodrbo-tuning.ru/sitemap.xml
 Sitemap: https://bodrbo-tuning.ru/sitemap-motory.xml

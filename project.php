@@ -1,30 +1,15 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/content-functions.php';
+
 function project_escape(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-function load_projects(): array
-{
-    $source = @file_get_contents(__DIR__ . '/projects-data.js');
-    if ($source === false) {
-        return [];
-    }
-
-    $json = (string) preg_replace('/^\s*const\s+PROJECTS\s*=\s*/', '', $source, 1);
-    $json = (string) preg_replace('/;\s*$/', '', $json);
-    $json = (string) preg_replace('/^(\s*)([A-Za-z][A-Za-z0-9_]*)\s*:/m', '$1"$2":', $json);
-    $json = str_replace("'", '"', $json);
-    $json = (string) preg_replace('/,\s*([}\]])/', '$1', $json);
-    $projects = json_decode($json, true);
-
-    return is_array($projects) ? $projects : [];
-}
-
 $slug = isset($_GET['slug']) && is_string($_GET['slug']) ? trim($_GET['slug']) : '';
-$projects = load_projects();
+$projects = content_load_projects();
 $project = null;
 $projectKey = '';
 
@@ -142,7 +127,7 @@ $schema = [
     <nav class="nav" aria-label="Основная навигация">
       <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
     </nav>
-    <div class="header-contact"><a href="tel:+79219676115">+7 (921) 967-61-15</a><small>Ежедневно с 10:00 до 20:00</small></div>
+    <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="/#request">Обсудить проект</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
@@ -196,11 +181,12 @@ $schema = [
 
   <footer id="contacts">
     <a class="footer-brand" href="/" aria-label="Бодрый Боцман — на главную"><img src="/assets/boatswain-face-web.png" alt=""><strong>Бодрый<br>Боцман</strong></a>
-    <div><small>Позвонить</small><a href="tel:+79219676115">+7 (921) 967-61-15</a></div>
-    <div><small>Написать</small><a href="mailto:info@bodrbo.ru">info@bodrbo.ru</a></div>
-    <p><a href="/#contacts">Тюнинг-центр · Порзолово</a><br>Ежедневно, 10:00–20:00</p>
+    <div><small>Позвонить</small><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a></div>
+    <div><small>Написать</small><a href="mailto:info@bodrbo.ru" data-contact="email">info@bodrbo.ru</a></div>
+    <p><a href="/#contacts" data-contact="location-label">Тюнинг-центр · Порзолово</a><br><span data-contact="hours-short">Ежедневно, 10:00–20:00</span></p>
     <span>© Бодрый Боцман, 2026 · <a href="/privacy/">Политика обработки персональных данных</a></span>
   </footer>
+  <script src="/site-content.php"></script>
   <script src="/script.js?v=3"></script>
 </body>
 </html>

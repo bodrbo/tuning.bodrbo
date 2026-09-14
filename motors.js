@@ -223,8 +223,9 @@ if (catalogGrid) {
         createElement('strong', '', 'Каталог сейчас не загрузился'),
         createElement('p', '', error.message || 'Позвоните нам — подберём мотор вручную.')
       );
-      const phone = createElement('a', 'button', 'Позвонить +7 (921) 967-61-15');
-      phone.href = 'tel:+79219676115';
+      const contact = window.BODRBO_SITE_CONTENT || {};
+      const phone = createElement('a', 'button', `Позвонить ${contact.phone_display || '+7 (921) 967-61-15'}`);
+      phone.href = `tel:${contact.phone_href || '+79219676115'}`;
       failure.append(phone);
       catalogGrid.append(failure);
       if (catalogCount) catalogCount.textContent = 'Нет данных';

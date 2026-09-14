@@ -27,12 +27,18 @@ cp "$project_root/motor-sitemap.php" "$build_dir/"
 cp "$project_root/integration-config.example.php" "$build_dir/"
 cp "$project_root/projects-data.js" "$build_dir/"
 cp "$project_root/project-page.js" "$build_dir/"
+cp "$project_root/content-functions.php" "$build_dir/"
+cp "$project_root/site-content.php" "$build_dir/"
+cp "$project_root/admin-config.example.php" "$build_dir/"
 cp "$project_root/robots.txt" "$build_dir/"
 cp "$project_root/sitemap.xml" "$build_dir/"
 cp "$project_root/.htaccess" "$build_dir/"
+cp "$project_root/ADMIN-BEGET.md" "$build_dir/"
 
 find "$project_root/assets" -maxdepth 1 -type f ! -name 'boatswain-face.png' -exec cp {} "$build_dir/assets/" \;
 cp -R "$project_root/assets/projects" "$build_dir/assets/"
+cp -R "$project_root/admin" "$build_dir/"
+cp -R "$project_root/content" "$build_dir/"
 
 (cd "$build_dir" && zip -q -r "$archive_path" .)
 
