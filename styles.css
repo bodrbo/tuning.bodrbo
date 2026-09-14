@@ -78,8 +78,8 @@ footer{background:#030a11;color:white;padding:48px max(28px,calc((100vw - var(--
 .case-step__copy>span{display:block;margin-bottom:35px;color:var(--blue);font:12px/1 monospace;letter-spacing:.12em}
 .case-step__copy h2{margin:0 0 18px;font-size:clamp(28px,3vw,45px);line-height:1;text-transform:uppercase;letter-spacing:-.035em}
 .case-step__copy p{margin:0;color:#56636f;font-size:17px;line-height:1.7}
-.case-step figure{height:540px;margin:0;overflow:hidden;background:#dfe4e8}
-.case-step figure img{width:100%;height:100%;object-fit:cover}
+.case-step figure{height:auto;aspect-ratio:1;margin:0;overflow:hidden;background:#dfe4e8}
+.case-step figure img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .case-result{padding:110px max(28px,calc((100vw - var(--max))/2));background:#071522;color:white}
 .case-result h2{max-width:1150px;margin:0;font-size:clamp(34px,4vw,60px);line-height:1.12;letter-spacing:-.035em}
 .case-result>div{display:flex;gap:16px;margin-top:50px}
@@ -98,7 +98,7 @@ footer{background:#030a11;color:white;padding:48px max(28px,calc((100vw - var(--
   .case-brief{gap:35px;padding-top:80px;padding-bottom:80px}
   .case-step,.case-step:nth-child(even){grid-template-columns:1fr;gap:28px}
   .case-step:nth-child(even) .case-step__copy{order:0}
-  .case-step figure{height:500px}
+  .case-step figure{height:auto;aspect-ratio:1}
 }
 @media(max-width:760px){
   .projects-heading-side{margin-top:22px}
@@ -118,7 +118,7 @@ footer{background:#030a11;color:white;padding:48px max(28px,calc((100vw - var(--
   .case-story__heading{margin-bottom:40px}
   .case-step{padding:40px 0}
   .case-step__copy>span{margin-bottom:22px}
-  .case-step figure{height:430px}
+  .case-step figure{height:auto;aspect-ratio:1}
   .case-result>div{flex-direction:column}
 }
 
@@ -154,7 +154,7 @@ footer small,footer>span{color:#8394a5}
   .trust-row b{font-size:14px;white-space:normal}
   .trust-row span{font-size:11px}
   .projects-index-cta{padding:70px 20px}
-  .case-step figure{height:clamp(330px,110vw,430px)}
+  .case-step figure{height:auto;aspect-ratio:1}
   .case-result h2{font-size:clamp(27px,7.4vw,30px);line-height:1.16}
 }
 

@@ -29,7 +29,7 @@ function render_catalog_unavailable(): void
       <meta name="theme-color" content="#071522">
       <title>Каталог обновляется — Бодрый Боцман</title>
       <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=12">
+      <link rel="stylesheet" href="/styles.css?v=13">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
@@ -154,7 +154,7 @@ $schema = [
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=12">
+  <link rel="stylesheet" href="/styles.css?v=13">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
