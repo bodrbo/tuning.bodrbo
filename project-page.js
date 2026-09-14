@@ -4,6 +4,7 @@ const pathProject = Object.entries(PROJECTS).find(([, item]) => item.slug === pa
 const caseKey = pathProject?.[0] || new URLSearchParams(window.location.search).get('case');
 const project = PROJECTS[caseKey];
 const siteUrl = 'https://bodrbo-tuning.ru';
+const projectAssetVersion = 'tilda-exact-20260914';
 
 if (!project) {
   document.title = 'Проект не найден — Бодрый Боцман';
@@ -21,7 +22,7 @@ if (!project) {
   document.querySelector('#og-title').setAttribute('content', document.title);
   document.querySelector('#og-description').setAttribute('content', project.subtitle);
   document.querySelector('#og-url').setAttribute('content', canonicalUrl);
-  document.querySelector('#og-image').setAttribute('content', `${siteUrl}/${project.cover}`);
+  document.querySelector('#og-image').setAttribute('content', `${siteUrl}/${project.cover}?v=${projectAssetVersion}`);
 
   const steps = project.steps.map((step, index) => `
     <article class="case-step">
@@ -30,7 +31,7 @@ if (!project) {
         <h2>${step[0]}</h2>
         <p>${step[1]}</p>
       </div>
-      <figure><img src="/assets/projects/${caseKey}/${step[2]}" alt="${step[0]} — ${project.shortTitle}" loading="lazy"></figure>
+      <figure><img src="/assets/projects/${caseKey}/${step[2]}?v=${projectAssetVersion}" alt="${step[0]} — ${project.shortTitle}" loading="lazy"></figure>
     </article>`).join('');
 
   caseRoot.innerHTML = `
@@ -43,7 +44,7 @@ if (!project) {
           <p class="case-hero__lead">${project.subtitle}</p>
           ${project.facts?.length ? `<div class="case-facts">${project.facts.map(fact => `<span>${fact}</span>`).join('')}</div>` : ''}
         </div>
-        <figure><img src="/${project.cover}" alt="${project.shortTitle}"></figure>
+        <figure><img src="/${project.cover}?v=${projectAssetVersion}" alt="${project.shortTitle}"></figure>
       </header>
 
       ${project.summary ? `<section class="case-brief">

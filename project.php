@@ -53,10 +53,11 @@ if (!$project) {
 }
 
 $siteUrl = 'https://bodrbo-tuning.ru';
+$assetVersion = rawurlencode(content_projects_version());
 $canonicalUrl = $siteUrl . '/proekty/' . $project['slug'] . '/';
 $pageTitle = (string) $project['title'] . ' — Бодрый Боцман';
 $description = (string) $project['subtitle'];
-$coverUrl = $siteUrl . '/' . ltrim((string) $project['cover'], '/');
+$coverUrl = $siteUrl . '/' . ltrim((string) $project['cover'], '/') . '?v=' . $assetVersion;
 $schema = [
     '@context' => 'https://schema.org',
     '@graph' => [
@@ -147,7 +148,7 @@ $schema = [
             <?php foreach ($project['facts'] as $fact): ?><span><?= project_escape((string) $fact) ?></span><?php endforeach; ?>
           </div><?php endif; ?>
         </div>
-        <figure><img src="/<?= project_escape((string) $project['cover']) ?>" alt="<?= project_escape((string) $project['shortTitle']) ?>"></figure>
+        <figure><img src="/<?= project_escape((string) $project['cover']) ?>?v=<?= project_escape($assetVersion) ?>" alt="<?= project_escape((string) $project['shortTitle']) ?>"></figure>
       </header>
 
       <?php if (!empty($project['summary'])): ?><section class="case-brief">
@@ -165,7 +166,7 @@ $schema = [
                 <h2><?= project_escape((string) $step[0]) ?></h2>
                 <p><?= project_escape((string) $step[1]) ?></p>
               </div>
-              <figure><img src="/assets/projects/<?= project_escape($projectKey) ?>/<?= project_escape((string) $step[2]) ?>" alt="<?= project_escape((string) $step[0]) ?> — <?= project_escape((string) $project['shortTitle']) ?>" loading="lazy"></figure>
+              <figure><img src="/assets/projects/<?= project_escape($projectKey) ?>/<?= project_escape((string) $step[2]) ?>?v=<?= project_escape($assetVersion) ?>" alt="<?= project_escape((string) $step[0]) ?> — <?= project_escape((string) $project['shortTitle']) ?>" loading="lazy"></figure>
             </article>
           <?php endforeach; ?>
         </div>
