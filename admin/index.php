@@ -40,6 +40,7 @@ $authenticated = !$configurationMissing && admin_is_authenticated();
 $site = content_load_site();
 $projects = content_load_projects();
 $saved = isset($_GET['saved']);
+$created = isset($_GET['created']);
 
 if ($authenticated && $_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'save') {
     try {
@@ -80,7 +81,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
   <?php if ($authenticated): ?><meta name="admin-csrf" content="<?= admin_escape(admin_csrf_token()) ?>"><?php endif; ?>
   <title>Редактор сайта — Бодрый Боцман</title>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/admin/admin.css?v=1">
+  <link rel="stylesheet" href="/admin/admin.css?v=2">
 </head>
 <body>
 <?php if ($configurationMissing): ?>
@@ -131,7 +132,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
     </aside>
 
     <main class="admin-main">
-      <?php if ($saved): ?><p class="admin-alert admin-alert--success" role="status">Изменения сохранены и уже видны на сайте.</p><?php endif; ?>
+      <?php if ($created): ?><p class="admin-alert admin-alert--success" role="status">Новый кейс создан, добавлен в архив проектов и sitemap. Теперь можно добавить остальные этапы.</p><?php elseif ($saved): ?><p class="admin-alert admin-alert--success" role="status">Изменения сохранены и уже видны на сайте.</p><?php endif; ?>
       <?php if ($error): ?><p class="admin-alert admin-alert--error" role="alert"><?= admin_escape($error) ?></p><?php endif; ?>
 
       <section class="admin-panel is-active" data-admin-panel="contacts">
@@ -171,7 +172,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
       </section>
 
       <section class="admin-panel" data-admin-panel="cases">
-        <div class="admin-title"><div><p class="admin-kicker">02 / Архив работ</p><h1>Редактор кейсов</h1></div><p>Меняйте текст, фотографии и порядок этапов. URL кейса остаётся стабильным.</p></div>
+        <div class="admin-title"><div><p class="admin-kicker">02 / Архив работ</p><h1>Редактор кейсов</h1></div><div class="admin-title__aside"><p>Меняйте текст, фотографии и порядок этапов. URL кейса остаётся стабильным.</p><a class="primary-button" href="/admin/new-case.php">+ Новый кейс</a></div></div>
         <div class="case-workbench">
           <nav class="case-list" aria-label="Выбор кейса">
             <?php foreach ($projects as $key => $project): ?><button type="button" data-case-select="<?= admin_escape((string) $key) ?>"><span><?= admin_escape((string) ($project['category'] ?? 'Кейс')) ?></span><b><?= admin_escape((string) ($project['shortTitle'] ?? $project['title'] ?? $key)) ?></b></button><?php endforeach; ?>
@@ -222,7 +223,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
     <article class="step-card" draggable="false" data-step><div class="step-card__rail"><button type="button" class="drag-handle" aria-label="Перетащить этап">⋮⋮</button><strong data-step-number></strong><div><button type="button" data-step-up>↑</button><button type="button" data-step-down>↓</button></div></div><div class="step-card__body"><label>Заголовок<input data-step-field="title" required></label><label>Текст<textarea data-step-field="text" rows="4" required></textarea></label><button type="button" class="remove-step" data-remove-step>Удалить этап</button></div><div class="step-card__image" data-image-control><div class="image-placeholder" data-image-preview>Добавьте фото</div><label class="upload-button">Выбрать фото<input type="file" accept="image/jpeg,image/png,image/webp" data-image-upload data-image-kind="step"></label><input type="hidden" data-step-field="image" data-image-value required></div></article>
   </template>
   <div class="admin-toast" role="status" aria-live="polite"></div>
-  <script src="/admin/admin.js?v=1"></script>
+  <script src="/admin/admin.js?v=2"></script>
 <?php endif; ?>
 </body>
 </html>

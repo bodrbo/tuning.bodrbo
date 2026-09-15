@@ -8,6 +8,24 @@ function project_escape(string $value): string
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+function project_seo_excerpt(string $value, int $maxLength): string
+{
+    $text = trim((string) preg_replace('/\s+/u', ' ', $value));
+    $length = function_exists('mb_strlen') ? mb_strlen($text, 'UTF-8') : count(preg_split('//u', $text, -1, PREG_SPLIT_NO_EMPTY) ?: []);
+    if ($length <= $maxLength) {
+        return $text;
+    }
+
+    if (function_exists('mb_substr')) {
+        $excerpt = mb_substr($text, 0, $maxLength - 1, 'UTF-8');
+    } else {
+        $characters = preg_split('//u', $text, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+        $excerpt = implode('', array_slice($characters, 0, $maxLength - 1));
+    }
+
+    return (string) preg_replace('/[\s,.;:—-]+$/u', '', $excerpt) . '…';
+}
+
 $slug = isset($_GET['slug']) && is_string($_GET['slug']) ? trim($_GET['slug']) : '';
 $projects = content_load_projects();
 $project = null;
@@ -55,8 +73,8 @@ if (!$project) {
 $siteUrl = 'https://bodrbo-tuning.ru';
 $assetVersion = rawurlencode(content_projects_version());
 $canonicalUrl = $siteUrl . '/proekty/' . $project['slug'] . '/';
-$pageTitle = (string) $project['title'] . ' — Бодрый Боцман';
-$description = (string) $project['subtitle'];
+$pageTitle = project_seo_excerpt((string) ($project['shortTitle'] ?? $project['title']), 42) . ' — Бодрый Боцман';
+$description = project_seo_excerpt((string) $project['subtitle'], 160);
 $coverUrl = $siteUrl . '/' . ltrim((string) $project['cover'], '/') . '?v=' . $assetVersion;
 $schema = [
     '@context' => 'https://schema.org',
@@ -66,6 +84,9 @@ $schema = [
             'headline' => (string) $project['title'],
             'description' => $description,
             'image' => [$coverUrl],
+            'url' => $canonicalUrl,
+            'inLanguage' => 'ru-RU',
+            'articleSection' => (string) ($project['category'] ?? 'Тюнинг и ремонт'),
             'mainEntityOfPage' => $canonicalUrl,
             'author' => ['@type' => 'Organization', 'name' => 'Бодрый Боцман'],
             'publisher' => [
@@ -104,14 +125,20 @@ $schema = [
   <!-- /Yandex.Metrika counter -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?= project_escape($description) ?>">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#071522">
   <link rel="canonical" href="<?= project_escape($canonicalUrl) ?>">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Бодрый Боцман">
   <meta property="og:title" content="<?= project_escape($pageTitle) ?>">
   <meta property="og:description" content="<?= project_escape($description) ?>">
   <meta property="og:url" content="<?= project_escape($canonicalUrl) ?>">
   <meta property="og:image" content="<?= project_escape($coverUrl) ?>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?= project_escape($pageTitle) ?>">
+  <meta name="twitter:description" content="<?= project_escape($description) ?>">
+  <meta name="twitter:image" content="<?= project_escape($coverUrl) ?>">
   <title><?= project_escape($pageTitle) ?></title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">

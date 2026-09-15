@@ -241,5 +241,7 @@
   });
 
   const hashCase = location.hash.match(/^#case-([a-z0-9_-]+)$/)?.[1];
-  activateCase(hashCase && caseEditors.some(editor => editor.dataset.caseEditor === hashCase) ? hashCase : caseEditors[0]?.dataset.caseEditor);
+  const initialCase = hashCase && caseEditors.some(editor => editor.dataset.caseEditor === hashCase) ? hashCase : caseEditors[0]?.dataset.caseEditor;
+  if (hashCase && initialCase === hashCase) activateTab('cases');
+  activateCase(initialCase);
 })();

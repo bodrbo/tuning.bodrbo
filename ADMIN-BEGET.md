@@ -35,13 +35,28 @@ chmod 700 ~/tuning.bodrbo.ru/content-data
 
 ```bash
 php8.3 -l public_html/admin/index.php
+php8.3 -l public_html/admin/new-case.php
 php8.3 -l public_html/admin/upload.php
 php8.3 -l public_html/admin/bootstrap.php
 php8.3 -l public_html/content-functions.php
 php8.3 -l public_html/site-content.php
+php8.3 -l public_html/projects.php
+php8.3 -l public_html/project.php
+php8.3 -l public_html/sitemap.php
 ```
 
 Во всех случаях должно появиться `No syntax errors detected`. Затем откройте `/admin/`, войдите с исходным паролем и сохраните тестовое изменение.
+
+## Создание нового кейса
+
+1. Откройте раздел «Кейсы» и нажмите «+ Новый кейс».
+2. Заполните вводную часть статьи, загрузите обложку и добавьте первый этап с фотографией.
+3. Проверьте справа поисковой предпросмотр и нажмите «Создать и открыть кейс».
+4. В обычном редакторе добавьте остальные этапы, при необходимости поменяйте их местами и сохраните изменения.
+
+SEO URL создаётся из заголовка автоматически и после публикации остаётся стабильным. Вместе со страницей автоматически формируются `title`, `description`, `canonical`, Open Graph, Twitter Card, разметка `Article` и `BreadcrumbList`. Новый адрес сразу появляется в архиве `/proekty/` и в `/sitemap.xml`.
+
+Созданный кейс публикуется сразу. Перед нажатием кнопки проверьте тексты и обложку в предпросмотре.
 
 ## Где хранятся данные
 
