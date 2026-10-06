@@ -53,7 +53,7 @@ if (!$project) {
   <meta name="theme-color" content="#071522">
   <title>Проект не найден — Бодрый Боцман</title>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=13">
+  <link rel="stylesheet" href="/styles.css?v=21">
 </head>
 <body class="case-page">
   <header class="site-header site-header--solid">
@@ -142,7 +142,7 @@ $schema = [
   <title><?= project_escape($pageTitle) ?></title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=13">
+  <link rel="stylesheet" href="/styles.css?v=21">
 </head>
 <body class="case-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -153,14 +153,14 @@ $schema = [
       <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
-      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
+      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
     </nav>
     <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="/#request">Обсудить проект</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
+    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#about">О компании</a><a href="/#contacts">Контакты</a>
   </div>
 
   <main>

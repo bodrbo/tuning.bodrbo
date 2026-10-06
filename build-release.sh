@@ -15,6 +15,10 @@ cp "$project_root/projects.php" "$build_dir/"
 cp "$project_root/project.html" "$build_dir/"
 cp "$project_root/project.php" "$build_dir/"
 cp "$project_root/motors.html" "$build_dir/"
+cp "$project_root/boats.html" "$build_dir/"
+cp "$project_root/boat-gx-maran.html" "$build_dir/"
+cp "$project_root/boat-x-maran.html" "$build_dir/"
+cp "$project_root/boat-fx-maran.html" "$build_dir/"
 cp "$project_root/motor.php" "$build_dir/"
 cp "$project_root/privacy.html" "$build_dir/"
 cp "$project_root/404.html" "$build_dir/"
@@ -39,6 +43,7 @@ cp "$project_root/ADMIN-BEGET.md" "$build_dir/"
 
 find "$project_root/assets" -maxdepth 1 -type f ! -name 'boatswain-face.png' -exec cp {} "$build_dir/assets/" \;
 cp -R "$project_root/assets/projects" "$build_dir/assets/"
+cp -R "$project_root/assets/boats" "$build_dir/assets/"
 cp -R "$project_root/admin" "$build_dir/"
 cp -R "$project_root/content" "$build_dir/"
 

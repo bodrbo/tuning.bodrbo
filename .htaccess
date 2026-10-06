@@ -36,6 +36,18 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} \s/+motors\.html(?:[?\s]) [NC]
   RewriteRule ^motors\.html$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
 
+  RewriteCond %{THE_REQUEST} \s/+boats\.html(?:[?\s]) [NC]
+  RewriteRule ^boats\.html$ /lodki-xmaran/ [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+boat-fx-maran\.html(?:[?\s]) [NC]
+  RewriteRule ^boat-fx-maran\.html$ /lodki-xmaran/fx-maran/ [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+boat-gx-maran\.html(?:[?\s]) [NC]
+  RewriteRule ^boat-gx-maran\.html$ /lodki-xmaran/gx-maran/ [R=301,L,NE]
+
+  RewriteCond %{THE_REQUEST} \s/+boat-x-maran\.html(?:[?\s]) [NC]
+  RewriteRule ^boat-x-maran\.html$ /lodki-xmaran/x-maran/ [R=301,L,NE]
+
   RewriteCond %{THE_REQUEST} \s/+privacy\.html(?:[?\s]) [NC]
   RewriteRule ^privacy\.html$ /privacy/ [R=301,L,NE]
 
@@ -79,6 +91,8 @@ ErrorDocument 404 /404.html
   # У всех публичных разделов один канонический формат — с завершающим слешем.
   RewriteRule ^proekty$ /proekty/ [R=301,L,NE]
   RewriteRule ^privacy$ /privacy/ [R=301,L,NE]
+  RewriteRule ^lodki-xmaran$ /lodki-xmaran/ [R=301,L,NE]
+  RewriteRule ^lodki-xmaran/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodki-xmaran/$1/ [R=301,L,NE]
   RewriteRule ^lodochnye-motory-marine-rocket$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
   RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodochnye-motory-marine-rocket/$1/ [R=301,L,NE]
   RewriteRule ^proekty/([a-z0-9]+(?:-[a-z0-9]+)*)$ /proekty/$1/ [R=301,L,NE]
@@ -87,6 +101,10 @@ ErrorDocument 404 /404.html
   RewriteRule ^sitemap\.xml$ sitemap.php [L]
   RewriteRule ^sitemap-motory\.xml$ motor-sitemap.php [L]
   RewriteRule ^privacy/?$ privacy.html [L]
+  RewriteRule ^lodki-xmaran/?$ boats.html [L]
+  RewriteRule ^lodki-xmaran/gx-maran/?$ boat-gx-maran.html [L]
+  RewriteRule ^lodki-xmaran/x-maran/?$ boat-x-maran.html [L]
+  RewriteRule ^lodki-xmaran/fx-maran/?$ boat-fx-maran.html [L]
   RewriteRule ^proekty/?$ projects.php [L]
   RewriteRule ^lodochnye-motory-marine-rocket/?$ motors.html [L]
   RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ motor.php?slug=$1 [L,QSA]

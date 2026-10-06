@@ -47,6 +47,13 @@ if (leadForm) {
 
   prepareSubmission();
 
+  document.querySelectorAll('[data-request-model]').forEach(link => {
+    link.addEventListener('click', () => {
+      const modelField = leadForm.elements.boat_model;
+      if (modelField) modelField.value = link.dataset.requestModel || '';
+    });
+  });
+
   leadForm.addEventListener('submit', async event => {
     event.preventDefault();
     prepareSubmission();

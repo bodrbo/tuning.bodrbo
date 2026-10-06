@@ -12,6 +12,10 @@ $siteUrl = 'https://bodrbo-tuning.ru';
 $urls = [
     $siteUrl . '/',
     $siteUrl . '/proekty/',
+    $siteUrl . '/lodki-xmaran/',
+    $siteUrl . '/lodki-xmaran/gx-maran/',
+    $siteUrl . '/lodki-xmaran/x-maran/',
+    $siteUrl . '/lodki-xmaran/fx-maran/',
     $siteUrl . '/lodochnye-motory-marine-rocket/',
     $siteUrl . '/privacy/',
 ];
@@ -39,4 +43,3 @@ foreach (array_values(array_unique($urls)) as $url) {
     echo '  <url><loc>' . sitemap_escape($url) . '</loc><lastmod>' . $lastModified . '</lastmod></url>' . "\n";
 }
 echo '</urlset>' . "\n";
-
