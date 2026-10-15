@@ -12,6 +12,7 @@ $siteUrl = 'https://bodrbo-tuning.ru';
 $urls = [
     $siteUrl . '/',
     $siteUrl . '/proekty/',
+    $siteUrl . '/zimnee-hranenie-lodok/',
     $siteUrl . '/lodki-xmaran/',
     $siteUrl . '/lodki-xmaran/gx-maran/',
     $siteUrl . '/lodki-xmaran/x-maran/',

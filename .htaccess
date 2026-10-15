@@ -39,6 +39,9 @@ ErrorDocument 404 /404.html
   RewriteCond %{THE_REQUEST} \s/+boats\.html(?:[?\s]) [NC]
   RewriteRule ^boats\.html$ /lodki-xmaran/ [R=301,L,NE]
 
+  RewriteCond %{THE_REQUEST} \s/+winter-storage\.html(?:[?\s]) [NC]
+  RewriteRule ^winter-storage\.html$ /zimnee-hranenie-lodok/ [R=301,L,NE]
+
   RewriteCond %{THE_REQUEST} \s/+boat-fx-maran\.html(?:[?\s]) [NC]
   RewriteRule ^boat-fx-maran\.html$ /lodki-xmaran/fx-maran/ [R=301,L,NE]
 
@@ -91,6 +94,7 @@ ErrorDocument 404 /404.html
   # У всех публичных разделов один канонический формат — с завершающим слешем.
   RewriteRule ^proekty$ /proekty/ [R=301,L,NE]
   RewriteRule ^privacy$ /privacy/ [R=301,L,NE]
+  RewriteRule ^zimnee-hranenie-lodok$ /zimnee-hranenie-lodok/ [R=301,L,NE]
   RewriteRule ^lodki-xmaran$ /lodki-xmaran/ [R=301,L,NE]
   RewriteRule ^lodki-xmaran/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodki-xmaran/$1/ [R=301,L,NE]
   RewriteRule ^lodochnye-motory-marine-rocket$ /lodochnye-motory-marine-rocket/ [R=301,L,NE]
@@ -101,6 +105,7 @@ ErrorDocument 404 /404.html
   RewriteRule ^sitemap\.xml$ sitemap.php [L]
   RewriteRule ^sitemap-motory\.xml$ motor-sitemap.php [L]
   RewriteRule ^privacy/?$ privacy.html [L]
+  RewriteRule ^zimnee-hranenie-lodok/?$ winter-storage.html [L]
   RewriteRule ^lodki-xmaran/?$ boats.html [L]
   RewriteRule ^lodki-xmaran/gx-maran/?$ boat-gx-maran.html [L]
   RewriteRule ^lodki-xmaran/x-maran/?$ boat-x-maran.html [L]
