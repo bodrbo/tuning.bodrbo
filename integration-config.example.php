@@ -3,5 +3,6 @@
 // ~/tuning.bodrbo.ru/integration-config.php
 return [
     'endpoint' => 'https://business.bodrbo.ru/api/integrations/tuning-leads',
+    'catalog_endpoint' => 'https://business.bodrbo.ru/api/integrations/tuning-boat-catalog',
     'secret' => 'PASTE_A_LONG_RANDOM_SECRET_HERE',
 ];

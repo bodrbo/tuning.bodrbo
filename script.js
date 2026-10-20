@@ -50,7 +50,10 @@ if (leadForm) {
   document.querySelectorAll('[data-request-model]').forEach(link => {
     link.addEventListener('click', () => {
       const modelField = leadForm.elements.boat_model;
-      if (modelField) modelField.value = link.dataset.requestModel || '';
+      if (modelField) {
+        modelField.value = link.dataset.requestModel || '';
+        modelField.dispatchEvent(new Event('input', { bubbles: true }));
+      }
     });
   });
 

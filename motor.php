@@ -29,7 +29,7 @@ function render_catalog_unavailable(): void
       <meta name="theme-color" content="#071522">
       <title>Каталог обновляется — Бодрый Боцман</title>
       <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=24">
+      <link rel="stylesheet" href="/styles.css?v=25">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
@@ -154,7 +154,7 @@ $schema = [
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=24">
+  <link rel="stylesheet" href="/styles.css?v=25">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -264,7 +264,15 @@ $schema = [
         <label class="form-trap" aria-hidden="true">Сайт компании<input name="company_website" tabindex="-1" autocomplete="off"></label>
         <label>Ваше имя<input name="name" autocomplete="name" required placeholder="Александр"></label>
         <label>Телефон<input name="phone" autocomplete="tel" required placeholder="+7 999 000-00-00"></label>
-        <label class="form-wide">Катер или выбранный мотор<input name="boat_model" autocomplete="off" value="Marine Rocket <?= page_escape((string) $product['model']) ?>"></label>
+        <div class="form-wide form-field boat-model-field" data-boat-model-field>
+          <label for="motor-order-model">Катер или выбранный мотор</label>
+          <div class="boat-model-search">
+            <input id="motor-order-model" name="boat_model" autocomplete="off" value="Marine Rocket <?= page_escape((string) $product['model']) ?>" data-boat-model-search>
+            <input type="hidden" name="boat_profile_id" value="">
+            <div class="boat-model-results" data-boat-model-results role="listbox" hidden></div>
+          </div>
+          <p class="boat-model-status" data-boat-model-status aria-live="polite">Можно заменить мотор на модель катера — найдём её в каталоге</p>
+        </div>
         <label class="form-wide">Что важно учесть<textarea name="message" rows="3">Интересует мотор Marine Rocket <?= page_escape((string) $product['model']) ?>. Нужен подбор под катер и установка.</textarea></label>
         <button class="button form-wide" type="submit">Получить подбор и расчёт</button>
         <p class="form-note form-wide">Нажимая кнопку отправки формы, вы даёте согласие на обработку персональных данных в соответствии с <a href="/privacy/" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</p>
@@ -282,6 +290,7 @@ $schema = [
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
   <script src="/site-content.php"></script>
   <script src="/motor-page.js?v=1"></script>
-  <script src="/script.js?v=3"></script>
+  <script src="/boat-model-search.js?v=1"></script>
+  <script src="/script.js?v=4"></script>
 </body>
 </html>

@@ -86,6 +86,7 @@ $requestId = post_text('request_id');
 $name = post_text('name');
 $phone = post_text('phone');
 $boatModel = post_text('boat_model');
+$boatProfileId = post_text('boat_profile_id');
 $message = post_text('message');
 $sourceUrl = post_text('source_url');
 
@@ -102,6 +103,9 @@ if (strlen($phoneDigits) < 10 || strlen($phoneDigits) > 15 || text_length($phone
 }
 if (text_length($boatModel) > 160) {
     $errors[] = 'Слишком длинное название модели';
+}
+if ($boatProfileId !== '' && (!ctype_digit($boatProfileId) || text_length($boatProfileId) > 20)) {
+    $errors[] = 'Некорректная модель из каталога';
 }
 if (text_length($message) > 2000) {
     $errors[] = 'Слишком длинное описание';
@@ -136,6 +140,7 @@ $payload = json_encode([
     'name' => $name,
     'phone' => $phone,
     'boat_model' => $boatModel,
+    'boat_profile_id' => $boatProfileId,
     'message' => $message,
     'source_url' => $sourceUrl,
     'submitted_at' => gmdate('c'),

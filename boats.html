@@ -43,7 +43,7 @@
     }
   </script>
   <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=24">
+  <link rel="stylesheet" href="/styles.css?v=25">
 </head>
 <body class="boats-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -226,7 +226,15 @@
         <label class="form-trap" aria-hidden="true">Сайт компании<input name="company_website" tabindex="-1" autocomplete="off"></label>
         <label>Ваше имя<input name="name" autocomplete="name" required placeholder="Александр"></label>
         <label>Телефон<input name="phone" autocomplete="tel" required placeholder="+7 999 000-00-00"></label>
-        <label class="form-wide">Модель лодки<input name="boat_model" autocomplete="off" placeholder="GX, RS, X или FX Maran"></label>
+        <div class="form-wide form-field boat-model-field" data-boat-model-field>
+          <label for="boats-lead-model">Модель лодки</label>
+          <div class="boat-model-search">
+            <input id="boats-lead-model" name="boat_model" autocomplete="off" placeholder="GX, RS, X или FX Maran" data-boat-model-search>
+            <input type="hidden" name="boat_profile_id" value="">
+            <div class="boat-model-results" data-boat-model-results role="listbox" hidden></div>
+          </div>
+          <p class="boat-model-status" data-boat-model-status aria-live="polite">Введите хотя бы 2 символа — понимаем и русское написание</p>
+        </div>
         <label class="form-wide">Пожелания к комплектации<textarea name="message" rows="3" placeholder="Расскажите, как планируете использовать лодку"></textarea></label>
         <button class="button form-wide" type="submit">Получить консультацию</button>
         <p class="form-note form-wide">Нажимая кнопку отправки формы, вы даёте согласие на обработку персональных данных в соответствии с <a href="/privacy/" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</p>
@@ -243,6 +251,7 @@
   </footer>
   <div class="toast" role="status" aria-live="polite">Спасибо! Заявка отправлена — скоро мы свяжемся с вами.</div>
   <script src="/site-content.php"></script>
+  <script src="/boat-model-search.js?v=1"></script>
   <script src="/script.js?v=4"></script>
 </body>
 </html>

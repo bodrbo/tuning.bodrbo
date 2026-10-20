@@ -175,7 +175,10 @@ if (catalogGrid) {
 
   const selectMotor = product => {
     if (!product || !requestSection) return;
-    if (modelField) modelField.value = `Marine Rocket ${product.model}`.slice(0, 160);
+    if (modelField) {
+      modelField.value = `Marine Rocket ${product.model}`.slice(0, 160);
+      modelField.dispatchEvent(new Event('input', { bubbles: true }));
+    }
     if (messageField && !messageField.value.trim()) {
       messageField.value = `Интересует мотор Marine Rocket ${product.model}. Нужен подбор под катер и установка.`;
     }

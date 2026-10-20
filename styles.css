@@ -204,6 +204,27 @@ footer p a{color:inherit}
 .toast{max-width:min(520px,calc(100vw - 40px));line-height:1.45}
 .toast--error{border-left-color:#d94b4b}
 
+/* Boat catalog autocomplete */
+.request .form-field>label{display:block;color:#8391a1;font-size:12px;text-transform:uppercase}
+.boat-model-search{position:relative}
+.boat-model-search>input[type="text"],.boat-model-search>input:not([type]){padding-right:34px}
+.boat-model-search:after{content:"⌕";position:absolute;right:2px;top:19px;color:#6da5ff;font-size:22px;line-height:1;pointer-events:none}
+.boat-model-results{position:absolute;z-index:30;top:calc(100% + 7px);left:0;right:0;max-height:286px;overflow-y:auto;border:1px solid #cbd5de;border-radius:5px;background:#f7f9fb;color:#102031;box-shadow:0 20px 48px #0008}
+.boat-model-option{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;min-height:54px;padding:11px 14px;border-bottom:1px solid #dfe5ea;cursor:pointer}
+.boat-model-option:last-child{border-bottom:0}
+.boat-model-option:hover,.boat-model-option.is-active{background:#e5efff}
+.boat-model-option strong{min-width:0;font-size:14px;line-height:1.35;text-transform:none}
+.boat-model-option span{color:#657482;font:700 9px/1.4 monospace;letter-spacing:.05em;text-transform:uppercase}
+.boat-model-status{min-height:17px;margin:7px 0 0;color:#718296;font:700 9px/1.45 monospace;letter-spacing:.035em;text-transform:none}
+.boat-model-status[data-state="selected"]{color:#78aaff}
+.boat-model-status[data-state="error"]{color:#dba5a5}
+.boat-model-field:focus-within label{color:#9bbcff}
+
+@media(max-width:760px){
+  .boat-model-results{max-height:236px}
+  .boat-model-option{min-height:58px;padding:12px}
+}
+
 /* Marine Rocket catalog */
 .motors-page{--rocket:#ff623e;--motor-silver:#dfe5e9;background:#eef1f4}
 .nav a[aria-current="page"]{color:#70a8ff}
