@@ -80,7 +80,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
   <meta name="robots" content="noindex, nofollow, noarchive">
   <?php if ($authenticated): ?><meta name="admin-csrf" content="<?= admin_escape(admin_csrf_token()) ?>"><?php endif; ?>
   <title>Редактор сайта — Бодрый Боцман</title>
-  <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
+  <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/admin/admin.css?v=2">
 </head>
 <body>
@@ -101,7 +101,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
 <?php elseif (!$authenticated): ?>
   <main class="login-shell">
     <section class="login-card">
-      <div class="admin-brand"><img src="/assets/boatswain-face-web.png" alt=""><span>Бодрый Боцман</span></div>
+      <div class="admin-brand"><img src="/assets/brand/current/bodry-botsman-short-dark.svg" alt=""><span>Бодрый Боцман</span></div>
       <p class="admin-kicker">// Редактор сайта</p>
       <h1>Вход в админку</h1>
       <?php if ($error): ?><p class="admin-alert admin-alert--error" role="alert"><?= admin_escape($error) ?></p><?php endif; ?>
@@ -114,7 +114,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
   </main>
 <?php else: ?>
   <header class="admin-header">
-    <a class="admin-brand" href="/admin/"><img src="/assets/boatswain-face-web.png" alt=""><span>Бодрый Боцман</span><small>CONTENT DECK</small></a>
+    <a class="admin-brand" href="/admin/"><img src="/assets/brand/current/bodry-botsman-short-dark.svg" alt=""><span>Бодрый Боцман</span><small>CONTENT DECK</small></a>
     <div class="admin-header__actions"><a href="/" target="_blank" rel="noopener">Открыть сайт ↗</a><form method="post"><input type="hidden" name="action" value="logout"><input type="hidden" name="csrf" value="<?= admin_escape(admin_csrf_token()) ?>"><button type="submit">Выйти</button></form></div>
   </header>
   <form method="post" id="content-form" class="admin-workspace" novalidate>

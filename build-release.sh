@@ -46,6 +46,8 @@ cp "$project_root/.htaccess" "$build_dir/"
 cp "$project_root/ADMIN-BEGET.md" "$build_dir/"
 
 find "$project_root/assets" -maxdepth 1 -type f ! -name 'boatswain-face.png' -exec cp {} "$build_dir/assets/" \;
+mkdir -p "$build_dir/assets/brand"
+cp -R "$project_root/assets/brand/current" "$build_dir/assets/brand/"
 cp -R "$project_root/assets/projects" "$build_dir/assets/"
 cp -R "$project_root/assets/boats" "$build_dir/assets/"
 cp -R "$project_root/assets/storage" "$build_dir/assets/"

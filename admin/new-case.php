@@ -146,12 +146,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'creat
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="admin-csrf" content="<?= admin_escape(admin_csrf_token()) ?>">
   <title>Новый кейс — Бодрый Боцман</title>
-  <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
+  <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/admin/admin.css?v=2">
 </head>
 <body class="new-case-page">
   <header class="admin-header">
-    <a class="admin-brand" href="/admin/"><img src="/assets/boatswain-face-web.png" alt=""><span>Бодрый Боцман</span><small>CONTENT DECK</small></a>
+    <a class="admin-brand" href="/admin/"><img src="/assets/brand/current/bodry-botsman-short-dark.svg" alt=""><span>Бодрый Боцман</span><small>CONTENT DECK</small></a>
     <div class="admin-header__actions"><a href="/admin/">← Вернуться в редактор</a></div>
   </header>
 

@@ -26,16 +26,15 @@ function render_catalog_unavailable(): void
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="robots" content="noindex">
-      <meta name="theme-color" content="#071522">
+      <meta name="theme-color" content="#003454">
       <title>Каталог обновляется — Бодрый Боцман</title>
-      <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-      <link rel="stylesheet" href="/styles.css?v=25">
+      <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
+      <link rel="stylesheet" href="/styles.css?v=26">
     </head>
     <body class="case-page">
       <header class="site-header site-header--solid">
         <a class="brand" href="/" aria-label="Бодрый Боцман — на главную">
-          <img class="brand__face" src="/assets/boatswain-face-web.png" alt="">
-          <strong class="brand__name">Бодрый<br>Боцман</strong>
+          <img class="brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман">
           <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
         </a>
       </header>
@@ -141,7 +140,7 @@ $schema = [
   <!-- /Yandex.Metrika counter -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?= page_escape($metaDescription) ?>">
-  <meta name="theme-color" content="#071522">
+  <meta name="theme-color" content="#003454">
   <link rel="canonical" href="<?= page_escape($canonicalUrl) ?>">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:type" content="product">
@@ -153,15 +152,14 @@ $schema = [
   <meta property="product:price:currency" content="RUB">
   <title><?= page_escape($title) ?> — купить с установкой в СПб</title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
-  <link rel="icon" href="/assets/boatswain-face-web.png" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=25">
+  <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=26">
 </head>
 <body class="motor-product-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
   <header class="site-header site-header--solid">
     <a class="brand" href="/" aria-label="Бодрый Боцман — на главную">
-      <img class="brand__face" src="/assets/boatswain-face-web.png" alt="">
-      <strong class="brand__name">Бодрый<br>Боцман</strong>
+      <img class="brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман">
       <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
@@ -281,7 +279,7 @@ $schema = [
   </main>
 
   <footer id="contacts">
-    <a class="footer-brand" href="/" aria-label="Бодрый Боцман — на главную"><img src="/assets/boatswain-face-web.png" alt=""><strong>Бодрый<br>Боцман</strong></a>
+    <a class="footer-brand" href="/" aria-label="Бодрый Боцман — на главную"><img class="footer-brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман"></a>
     <div><small>Позвонить</small><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a></div>
     <div><small>Написать</small><a href="mailto:info@bodrbo.ru" data-contact="email">info@bodrbo.ru</a></div>
     <p><a href="/#contacts" data-contact="location-label">Тюнинг-центр · Порзолово</a><br><span data-contact="hours-short">Ежедневно, 10:00–20:00</span></p>
