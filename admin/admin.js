@@ -63,6 +63,7 @@
         step.querySelector('[data-step-field="title"]')?.value.trim() || '',
         step.querySelector('[data-step-field="text"]')?.value.trim() || '',
         step.querySelector('[data-step-field="image"]')?.value.trim() || '',
+        step.dataset.stepId || '',
       ]);
       projects[key] = current;
     });
@@ -136,6 +137,7 @@
       if (upload) upload.dataset.projectKey = add.dataset.projectKey || '';
       list.append(fragment);
       const step = list.lastElementChild;
+      step.dataset.stepId = crypto.randomUUID();
       const uploadInput = step?.querySelector('[data-image-upload]');
       if (uploadInput) bindUpload(uploadInput);
       renumber(list);

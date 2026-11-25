@@ -31,10 +31,10 @@ if (!admin_verify_csrf((string) ($_POST['csrf'] ?? ''))) {
 $projectKey = (string) ($_POST['project_key'] ?? '');
 $kind = (string) ($_POST['kind'] ?? 'step');
 $projects = content_load_projects();
-if (!isset($projects[$projectKey]) || !preg_match('/^[a-z0-9_-]+$/', $projectKey)) {
+if ($kind !== 'video' && (!isset($projects[$projectKey]) || !preg_match('/^[a-z0-9_-]+$/', $projectKey))) {
     upload_response(400, ['ok' => false, 'message' => 'Неверно выбран кейс.']);
 }
-if (!in_array($kind, ['cover', 'step'], true)) {
+if (!in_array($kind, ['cover', 'step', 'video'], true)) {
     upload_response(400, ['ok' => false, 'message' => 'Неверный тип фотографии.']);
 }
 if (!isset($_FILES['image']) || !is_array($_FILES['image'])) {
@@ -64,7 +64,8 @@ if (!isset($extensions[$mime])) {
     upload_response(400, ['ok' => false, 'message' => 'Допустимы только JPG, PNG и WebP.']);
 }
 
-$uploadDirectory = dirname(__DIR__) . '/assets/projects/' . $projectKey . '/uploads';
+$assetDirectory = $kind === 'video' ? 'assets/videos' : 'assets/projects/' . $projectKey . '/uploads';
+$uploadDirectory = dirname(__DIR__) . '/' . $assetDirectory;
 if (!is_dir($uploadDirectory) && !mkdir($uploadDirectory, 0775, true) && !is_dir($uploadDirectory)) {
     upload_response(500, ['ok' => false, 'message' => 'Сервер не может создать папку для фотографий.']);
 }
@@ -77,6 +78,6 @@ if (!move_uploaded_file($temporary, $destination)) {
 @chmod($destination, 0664);
 
 $relative = 'uploads/' . $filename;
-$value = $kind === 'cover' ? 'assets/projects/' . $projectKey . '/' . $relative : $relative;
-$url = '/assets/projects/' . rawurlencode($projectKey) . '/' . $relative;
+$value = $kind === 'video' ? $assetDirectory . '/' . $filename : ($kind === 'cover' ? 'assets/projects/' . $projectKey . '/' . $relative : $relative);
+$url = '/' . $assetDirectory . '/' . $filename;
 upload_response(200, ['ok' => true, 'value' => $value, 'url' => $url]);

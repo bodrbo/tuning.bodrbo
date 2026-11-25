@@ -162,7 +162,7 @@ $schema = [
   </div>
 
   <main>
-    <article>
+    <article data-video-project="<?= project_escape($projectKey) ?>">
       <header class="case-hero">
         <div class="case-hero__copy">
           <a class="case-back" href="/proekty/">← Все проекты</a>
@@ -185,7 +185,7 @@ $schema = [
         <div class="case-story__heading"><p class="eyebrow">Ход проекта</p><h2>От диагностики<br>до результата</h2></div>
         <div class="case-steps">
           <?php foreach ($project['steps'] as $index => $step): ?>
-            <article class="case-step">
+            <article class="case-step" id="stage-<?= $index + 1 ?>" data-video-step="<?= project_escape((string) ($step[3] ?? $step[2])) ?>">
               <div class="case-step__copy">
                 <span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?> / <?= str_pad((string) count($project['steps']), 2, '0', STR_PAD_LEFT) ?></span>
                 <h2><?= project_escape((string) $step[0]) ?></h2>
@@ -213,6 +213,8 @@ $schema = [
     <span>© Бодрый Боцман, 2026 · <a href="/privacy/">Политика обработки персональных данных</a></span>
   </footer>
   <script src="/site-content.php"></script>
+  <link rel="stylesheet" href="/video-blog.css?v=1">
+  <script src="/video-blog.js?v=1"></script>
   <script src="/script.js?v=3"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/content-functions.php';
+require_once __DIR__ . '/video-functions.php';
 
 header('Content-Type: application/javascript; charset=utf-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -13,6 +14,7 @@ $flags = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_H
 ?>
 window.BODRBO_SITE_CONTENT = <?= json_encode($site, $flags) ?>;
 window.BODRBO_PROJECTS = <?= json_encode($projects, $flags) ?>;
+window.BODRBO_VIDEOS = <?= json_encode(video_public(), $flags) ?>;
 
 (() => {
   const site = window.BODRBO_SITE_CONTENT || {};

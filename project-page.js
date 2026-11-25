@@ -1,8 +1,9 @@
 const caseRoot = document.querySelector('#case-content');
+const currentProjects = window.BODRBO_PROJECTS || PROJECTS;
 const pathSlug = decodeURIComponent(window.location.pathname.replace(/\/+$/, '').split('/').pop() || '');
-const pathProject = Object.entries(PROJECTS).find(([, item]) => item.slug === pathSlug);
+const pathProject = Object.entries(currentProjects).find(([, item]) => item.slug === pathSlug);
 const caseKey = pathProject?.[0] || new URLSearchParams(window.location.search).get('case');
-const project = PROJECTS[caseKey];
+const project = currentProjects[caseKey];
 const siteUrl = 'https://bodrbo-tuning.ru';
 const projectAssetVersion = 'tilda-exact-20260914';
 
@@ -25,7 +26,7 @@ if (!project) {
   document.querySelector('#og-image').setAttribute('content', `${siteUrl}/${project.cover}?v=${projectAssetVersion}`);
 
   const steps = project.steps.map((step, index) => `
-    <article class="case-step">
+    <article class="case-step" id="stage-${index + 1}" data-video-step="${step[3] || step[2]}">
       <div class="case-step__copy">
         <span>${String(index + 1).padStart(2, '0')} / ${String(project.steps.length).padStart(2, '0')}</span>
         <h2>${step[0]}</h2>
@@ -35,7 +36,7 @@ if (!project) {
     </article>`).join('');
 
   caseRoot.innerHTML = `
-    <article>
+    <article data-video-project="${caseKey}">
       <header class="case-hero">
         <div class="case-hero__copy">
           <a class="case-back" href="/proekty/">← Все проекты</a>

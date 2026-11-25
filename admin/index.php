@@ -127,6 +127,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
       <nav class="admin-tabs" aria-label="Разделы админки">
         <button type="button" class="is-active" data-admin-tab="contacts"><span>01</span>Контакты</button>
         <button type="button" data-admin-tab="cases"><span>02</span>Кейсы</button>
+        <a href="/admin/videos.php">Видеоблог ↗</a>
       </nav>
       <div class="admin-rail__note"><b>Автокопии</b><p>Перед каждым сохранением прежняя версия остаётся в архиве.</p></div>
     </aside>
@@ -202,7 +203,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
                   <div class="step-section__title"><div><h2>Этапы работ</h2><p>Перетаскивайте карточки или используйте стрелки.</p></div><button type="button" class="secondary-button" data-add-step data-project-key="<?= admin_escape((string) $key) ?>">+ Добавить этап</button></div>
                   <div class="step-list" data-step-list>
                     <?php foreach (($project['steps'] ?? []) as $index => $step): ?>
-                      <article class="step-card" draggable="false" data-step>
+                      <article class="step-card" draggable="false" data-step data-step-id="<?= admin_escape((string) ($step[3] ?? $step[2])) ?>">
                         <div class="step-card__rail"><button type="button" class="drag-handle" aria-label="Перетащить этап">⋮⋮</button><strong data-step-number><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></strong><div><button type="button" data-step-up aria-label="Поднять этап">↑</button><button type="button" data-step-down aria-label="Опустить этап">↓</button></div></div>
                         <div class="step-card__body"><label>Заголовок<input data-step-field="title" value="<?= admin_escape((string) ($step[0] ?? '')) ?>" required></label><label>Текст<textarea data-step-field="text" rows="4" required><?= admin_escape((string) ($step[1] ?? '')) ?></textarea></label><button type="button" class="remove-step" data-remove-step>Удалить этап</button></div>
                         <div class="step-card__image" data-image-control><img data-image-preview src="<?= admin_escape(admin_image_url((string) ($step[2] ?? ''), (string) $key)) ?>" alt=""><label class="upload-button">Заменить фото<input type="file" accept="image/jpeg,image/png,image/webp" data-image-upload data-image-kind="step" data-project-key="<?= admin_escape((string) $key) ?>"></label><input type="hidden" data-step-field="image" data-image-value value="<?= admin_escape((string) ($step[2] ?? '')) ?>"></div>
@@ -223,7 +224,7 @@ $projectJson = json_encode($projects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SL
     <article class="step-card" draggable="false" data-step><div class="step-card__rail"><button type="button" class="drag-handle" aria-label="Перетащить этап">⋮⋮</button><strong data-step-number></strong><div><button type="button" data-step-up>↑</button><button type="button" data-step-down>↓</button></div></div><div class="step-card__body"><label>Заголовок<input data-step-field="title" required></label><label>Текст<textarea data-step-field="text" rows="4" required></textarea></label><button type="button" class="remove-step" data-remove-step>Удалить этап</button></div><div class="step-card__image" data-image-control><div class="image-placeholder" data-image-preview>Добавьте фото</div><label class="upload-button">Выбрать фото<input type="file" accept="image/jpeg,image/png,image/webp" data-image-upload data-image-kind="step"></label><input type="hidden" data-step-field="image" data-image-value required></div></article>
   </template>
   <div class="admin-toast" role="status" aria-live="polite"></div>
-  <script src="/admin/admin.js?v=2"></script>
+  <script src="/admin/admin.js?v=3"></script>
 <?php endif; ?>
 </body>
 </html>

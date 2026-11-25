@@ -222,10 +222,15 @@ function admin_validate_projects(array $input, array $existing): array
         }
         foreach ($rawSteps as $step) {
             if (!is_array($step)) continue;
+            $stepId = admin_text($step[3] ?? $step[2] ?? '', 500, true);
+            if (!preg_match('#^[A-Za-z0-9_./-]+$#', $stepId) || str_contains($stepId, '..')) {
+                throw new InvalidArgumentException('Некорректный идентификатор этапа.');
+            }
             $steps[] = [
                 admin_text($step[0] ?? '', 220, true),
                 admin_text($step[1] ?? '', 5000, true),
                 admin_safe_image($step[2] ?? ''),
+                $stepId,
             ];
         }
         if (!$steps) {
@@ -262,4 +267,4 @@ header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('X-Frame-Options: DENY');
 header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: same-origin');
-header("Content-Security-Policy: default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
+header("Content-Security-Policy: default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src https://vk.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
