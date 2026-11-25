@@ -213,8 +213,8 @@ $schema = [
     <span>© Бодрый Боцман, 2026 · <a href="/privacy/">Политика обработки персональных данных</a></span>
   </footer>
   <script src="/site-content.php"></script>
-  <link rel="stylesheet" href="/video-blog.css?v=1">
-  <script src="/video-blog.js?v=1"></script>
+  <link rel="stylesheet" href="/video-blog.css?v=2">
+  <script src="/video-blog.js?v=2"></script>
   <script src="/script.js?v=3"></script>
 </body>
 </html>

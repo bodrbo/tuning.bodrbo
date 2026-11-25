@@ -32,7 +32,7 @@
     Object.entries(projects).forEach(([key, value]) => project.add(new Option(value.shortTitle || value.title, key)));
     function steps(selected = '') {
       const field = card.querySelector('[data-field="step"]');
-      field.replaceChildren(new Option('Под всей статьёй', ''));
+      field.replaceChildren(new Option('О проекте в целом', ''));
       (projects[project.value]?.steps || []).forEach((step, index) => field.add(new Option((index + 1) + '. ' + step[0], step[3] || step[2])));
       if (selected && ![...field.options].some(option => option.value === selected)) field.add(new Option('Этап удалён — выберите другой', selected));
       field.value = selected;

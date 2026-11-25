@@ -68,8 +68,7 @@
       const project = projects[first.project];
       if (project) {
         const link = element('a', '', 'Посмотреть проект ↗');
-        const stepIndex = first.step ? project.steps.findIndex(step => (step[3] || step[2]) === first.step) : -1;
-        link.href = '/proekty/' + project.slug + '/' + (stepIndex >= 0 ? '#stage-' + (stepIndex + 1) : '');
+        link.href = '/proekty/' + project.slug + '/';
         copy.append(link);
       }
       feature.append(poster(first), copy); grid.append(feature);
@@ -84,11 +83,17 @@
     }
     document.querySelectorAll('[data-video-project]').forEach(root => {
       const key = root.dataset.videoProject;
-      videos.filter(video => video.project === key).forEach(video => {
+      const caseVideos = videos.filter(video => video.project === key);
+      const hero = root.querySelector('.case-hero');
+      if (!hero || !caseVideos.length) return;
+      const section = element('section', 'case-videos');
+      section.setAttribute('aria-label', 'Видео о проекте');
+      caseVideos.forEach(video => {
         const stage = [...root.querySelectorAll('[data-video-step]')].find(node => node.dataset.videoStep === video.step);
-        const target = video.step ? stage : root.querySelector('.case-story');
-        if (target) target.append(related(video, video.step ? 'Видео к этому этапу' : 'Видео о проекте'));
+        const title = stage?.querySelector('h2')?.textContent;
+        section.append(related(video, title ? 'Видео к этапу «' + title + '»' : 'Видео о проекте'));
       });
+      hero.after(section);
     });
     const services = { 'Механика': 'mechanics', 'Корпус': 'hull', 'Электрика': 'electrics', 'Электроника': 'electronics', 'Интерьер': 'interior', 'Тюнинг': 'tuning' };
     document.querySelectorAll('.service-grid > article, [data-video-service]').forEach(root => {

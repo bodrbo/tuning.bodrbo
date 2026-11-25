@@ -66,7 +66,7 @@ $flags = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNES
     <label class="field-wide">Описание<textarea data-field="description" rows="2" maxlength="1000"></textarea></label>
     <div class="image-control field-wide"><img data-cover-preview alt="Обложка выпуска"><div><label>Обложка<input type="file" data-cover-upload accept="image/jpeg,image/png,image/webp"></label><input type="hidden" data-field="cover"><p>JPG, PNG или WebP, до 8 МБ. Рекомендуем горизонтальную обложку.</p></div></div>
     <label>Кейс<select data-field="project"></select></label>
-    <label>Этап<select data-field="step"></select><small>Можно показать выпуск под всей статьёй или под конкретным этапом.</small></label>
+    <label>Этап<select data-field="step"></select><small>Выпуск показывается в начале кейса. Выберите этап, к которому он относится.</small></label>
     <label>Услуга<select data-field="service"><option value="">Без привязки</option><option value="mechanics">Механика</option><option value="hull">Корпус</option><option value="electrics">Электрика</option><option value="electronics">Электроника</option><option value="interior">Интерьер</option><option value="tuning">Тюнинг</option></select></label>
     <div class="video-checkboxes"><label><input type="checkbox" data-field="published">Опубликован</label><label><input type="checkbox" data-field="home">На главной</label></div>
   </div>
@@ -74,4 +74,4 @@ $flags = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNES
   <div data-player></div>
 </article>
 </template>
-</main><script src="/admin/videos.js?v=1"></script></body></html>
+</main><script src="/admin/videos.js?v=2"></script></body></html>
