@@ -55,6 +55,8 @@ cp -R "$project_root/assets/projects" "$build_dir/assets/"
 cp -R "$project_root/assets/boats" "$build_dir/assets/"
 cp -R "$project_root/assets/storage" "$build_dir/assets/"
 if [ -d "$project_root/assets/videos" ]; then cp -R "$project_root/assets/videos" "$build_dir/assets/"; fi
+if [ -d "$project_root/assets/boat-guide" ]; then cp -R "$project_root/assets/boat-guide" "$build_dir/assets/"; fi
+cp -R "$project_root/spravochnik" "$build_dir/"
 cp -R "$project_root/admin" "$build_dir/"
 cp -R "$project_root/content" "$build_dir/"
 

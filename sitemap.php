@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/content-functions.php';
+require_once __DIR__ . '/content/boat-guide-functions.php';
 
 function sitemap_escape(string $value): string
 {
@@ -42,5 +42,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 foreach (array_values(array_unique($urls)) as $url) {
     echo '  <url><loc>' . sitemap_escape($url) . '</loc><lastmod>' . $lastModified . '</lastmod></url>' . "\n";
+}
+echo '  <url><loc>' . $siteUrl . '/spravochnik/</loc></url>' . "\n";
+foreach (guide_models() as $slug => $model) {
+    if (guide_indexable($model)) {
+        echo '  <url><loc>' . sitemap_escape($siteUrl . '/spravochnik/' . $slug . '/') . '</loc></url>' . "\n";
+    }
 }
 echo '</urlset>' . "\n";

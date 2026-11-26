@@ -101,6 +101,12 @@ ErrorDocument 404 /404.html
   RewriteRule ^lodochnye-motory-marine-rocket/([a-z0-9]+(?:-[a-z0-9]+)*)$ /lodochnye-motory-marine-rocket/$1/ [R=301,L,NE]
   RewriteRule ^proekty/([a-z0-9]+(?:-[a-z0-9]+)*)$ /proekty/$1/ [R=301,L,NE]
 
+  RewriteCond %{THE_REQUEST} \s/+spravochnik/index\.php(?:[?\s]) [NC]
+  RewriteRule ^spravochnik/index\.php$ /spravochnik/ [R=301,L,NE]
+  RewriteRule ^spravochnik$ /spravochnik/ [R=301,L,NE]
+  RewriteRule ^spravochnik/([a-z0-9]+(?:-[a-z0-9]+)*)$ /spravochnik/$1/ [R=301,L,NE]
+  RewriteRule ^spravochnik/[a-z0-9]+(?:-[a-z0-9]+)*/$ spravochnik/index.php [L]
+
   # Чистые URL обслуживаются существующими HTML-шаблонами без изменения адреса.
   RewriteRule ^sitemap\.xml$ sitemap.php [L]
   RewriteRule ^sitemap-motory\.xml$ motor-sitemap.php [L]

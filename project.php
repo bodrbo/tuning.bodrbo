@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/content-functions.php';
+require_once __DIR__ . '/content/boat-guide-functions.php';
 
 function project_escape(string $value): string
 {
@@ -69,6 +69,8 @@ if (!$project) {
     exit;
 }
 
+$relatedModels = array_filter(guide_json(__DIR__ . '/content/boat-guide.json'), static fn(array $model): bool =>
+    in_array($slug, $model['cases'] ?? [], true));
 $siteUrl = 'https://bodrbo-tuning.ru';
 $assetVersion = rawurlencode(content_projects_version());
 $canonicalUrl = $siteUrl . '/proekty/' . $project['slug'] . '/';
@@ -150,15 +152,15 @@ $schema = [
       <img class="brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман">
       <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
     </a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
+    <nav class="nav nav--guide" aria-label="Основная навигация">
+      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
     </nav>
     <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="/#request">Обсудить проект</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
+    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
   </div>
 
   <main>
@@ -203,6 +205,13 @@ $schema = [
         <div><a class="button" href="/#request">Обсудить похожую задачу</a><a class="button button--ghost" href="/proekty/">Другие проекты</a></div>
       </section><?php endif; ?>
     </article>
+    <?php if ($relatedModels): ?>
+      <section class="case-model-links" aria-label="Лодки из проекта">
+        <?php foreach ($relatedModels as $modelSlug => $model): ?>
+          <a href="/spravochnik/<?= project_escape($modelSlug) ?>/">В справочнике лодок — <?= project_escape($model['name']) ?></a>
+        <?php endforeach; ?>
+      </section>
+    <?php endif; ?>
   </main>
 
   <footer id="contacts">

@@ -529,3 +529,7 @@ footer{background:#001d31;border-top-color:#20b8c52e}
 @media(max-width:360px){
   .brand .brand__logo{width:185px}
 }
+
+.case-model-links { max-width: var(--max); margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) 42px; }
+.case-model-links a { display: inline-block; margin-right: 20px; color: #003454; text-decoration: underline; text-underline-offset: .25em; }
+@media (min-width:1101px) and (max-width:1450px) { .nav--guide { gap: 14px; font-size: 12px; } .site-header:has(.nav--guide) { gap: 20px; } .site-header:has(.nav--guide) .brand__descriptor { display: none; } }
