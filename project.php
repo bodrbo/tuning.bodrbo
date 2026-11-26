@@ -53,7 +53,7 @@ if (!$project) {
   <meta name="theme-color" content="#003454">
   <title>Проект не найден — Бодрый Боцман</title>
   <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=26">
+  <link rel="stylesheet" href="/styles.css?v=28">
 </head>
 <body class="case-page">
   <header class="site-header site-header--solid">
@@ -143,7 +143,7 @@ $schema = [
   <title><?= project_escape($pageTitle) ?></title>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
   <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=26">
+  <link rel="stylesheet" href="/styles.css?v=28">
 </head>
 <body class="case-page">
   <noscript><div><img src="https://mc.yandex.ru/watch/104372402" style="position:absolute; left:-9999px;" alt=""></div></noscript>
@@ -153,14 +153,14 @@ $schema = [
       <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
     </a>
     <nav class="nav nav--guide" aria-label="Основная навигация">
-      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
+      <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#contacts">Контакты</a>
     </nav>
     <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
     <a class="button button--small" href="/#request">Обсудить проект</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/zimnee-hranenie-lodok/">Хранение</a><a href="/#contacts">Контакты</a>
+    <a href="/#services">Услуги</a><a href="/proekty/" aria-current="page">Проекты</a><a href="/spravochnik/">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#contacts">Контакты</a>
   </div>
 
   <main>
@@ -224,6 +224,6 @@ $schema = [
   <script src="/site-content.php"></script>
   <link rel="stylesheet" href="/video-blog.css?v=2">
   <script src="/video-blog.js?v=2"></script>
-  <script src="/script.js?v=3"></script>
+  <script src="/script.js?v=6"></script>
 </body>
 </html>

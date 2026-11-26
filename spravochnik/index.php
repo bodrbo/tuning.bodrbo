@@ -81,18 +81,26 @@ header('Content-Type: text/html; charset=UTF-8');
   <?php if (!$missing): ?><link rel="canonical" href="<?= guide_escape($canonical) ?>"><?php endif; ?>
   <?php if ($noIndex): ?><meta name="robots" content="noindex,follow"><?php endif; ?>
   <link rel="icon" href="/assets/brand/current/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=26">
-  <link rel="stylesheet" href="/spravochnik/guide.css">
+  <link rel="stylesheet" href="/styles.css?v=28">
+  <link rel="stylesheet" href="/spravochnik/guide.css?v=2">
 </head>
 <body class="boat-guide">
-  <header class="site-header site-header--solid guide-header">
-    <a class="brand" href="/"><img class="brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман — главная"></a>
-    <nav aria-label="Основная навигация">
-      <a href="<?= $root ?>"<?= $slug === '' ? ' aria-current="page"' : '' ?>>Справочник</a>
-      <a href="/proekty/">Проекты</a>
-      <a href="/#services">Услуги</a>
+  <header class="site-header site-header--solid">
+    <a class="brand" href="/" aria-label="Бодрый Боцман — на главную">
+      <img class="brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман">
+      <span class="brand__descriptor">Тюнинг, ремонт<br>и модернизация катеров</span>
+    </a>
+    <nav class="nav nav--guide" aria-label="Основная навигация">
+      <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="<?= $root ?>" aria-current="page">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#contacts">Контакты</a>
     </nav>
+    <div class="header-contact"><a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a><small data-contact="hours-header">Ежедневно с 10:00 до 20:00</small></div>
+    <a class="button button--small" href="/#request">Прислать фото</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
   </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/#services">Услуги</a><a href="/proekty/">Проекты</a><a href="<?= $root ?>" aria-current="page">Справочник</a><a href="/lodki-xmaran/">Лодки</a><a href="/lodochnye-motory-marine-rocket/">Моторы</a><a href="/#contacts">Контакты</a>
+    <a href="tel:+79219676115" data-contact="phone">+7 (921) 967-61-15</a>
+  </div>
   <main class="guide-main">
     <nav class="guide-trail" aria-label="Хлебные крошки">
       <a href="/">Главная</a>
@@ -180,5 +188,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <?php endif; ?>
   </main>
   <footer><a class="footer-brand" href="/"><img class="footer-brand__logo" src="/assets/brand/current/bodry-botsman-combined-side-2lines-light.svg" alt="Бодрый Боцман"></a><a href="<?= $root ?>">Все модели</a><a href="/privacy/">Политика обработки персональных данных</a></footer>
+  <script src="/site-content.php"></script>
+  <script src="/script.js?v=6"></script>
 </body>
 </html>

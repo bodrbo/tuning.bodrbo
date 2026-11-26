@@ -1,0 +1,38 @@
+.callback-launcher{position:fixed;right:24px;bottom:24px;z-index:60;width:74px;height:74px;padding:4px;border:2px solid var(--orange,#ff6700);border-radius:50%;background:var(--navy-deep,#00263f);box-shadow:0 8px 28px #00263f55;color:white;cursor:pointer}
+.callback-launcher[hidden]{display:none}
+.callback-launcher::before{content:"";position:absolute;inset:-2px;border:2px solid var(--orange,#ff6700);border-radius:50%;animation:callback-pulse 2.8s ease-out infinite;pointer-events:none}
+.callback-launcher--opened::before{animation:none;opacity:0}
+.callback-launcher>img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.callback-launcher__label{position:absolute;right:88px;top:50%;transform:translateY(-50%);padding:9px 14px;background:var(--navy-deep,#00263f);border-radius:7px;font-size:14px;font-weight:700;line-height:1.4;text-align:left;white-space:nowrap;box-shadow:0 5px 20px #00263f22}
+.callback-launcher__label small{display:block;color:#a8e2e6;font-size:11px;font-weight:400}
+.callback-panel{position:fixed;inset:0 0 0 auto;margin:0;padding:0;border:0;width:min(430px,100%);max-width:100%;height:100vh;height:100dvh;max-height:none;background:#f2f7f8;color:#082c3b;box-shadow:-15px 0 60px #001d3155;overflow:auto;overscroll-behavior:contain}
+.callback-panel::backdrop{background:#001d317d}
+.callback-panel__header{display:flex;align-items:center;gap:14px;padding:24px;background:var(--navy-deep,#00263f);color:white;position:sticky;top:0;z-index:2}
+.callback-panel__header>img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #6fc8d0}
+.callback-panel__header h2{margin:0;font-size:23px;line-height:1.25;letter-spacing:0;text-transform:none}
+.callback-panel__header p{margin:4px 0 0;font-size:13px;color:#b6d8df}
+.callback-close{margin-left:auto;flex-shrink:0;width:44px;height:44px;border:1px solid #ffffff55;border-radius:50%;background:transparent;color:white;font-size:28px;cursor:pointer}
+.callback-panel__body{padding:24px 24px max(24px,env(safe-area-inset-bottom))}
+.callback-greeting{margin:0 0 24px;padding:16px 18px;background:white;border:1px solid #d6e5e9;border-radius:0 12px 12px 12px;font-size:14px;line-height:1.6}
+.callback-panel form{display:flex;flex-direction:column;gap:9px}
+.callback-panel label{display:block;font-size:13px;font-weight:700;margin:8px 0 0}
+.callback-panel input:not([type=hidden]),.callback-panel textarea{display:block;width:100%;min-width:0;min-height:46px;padding:12px 13px;border:1px solid #b5cbd2;border-radius:5px;background:white;color:#082c3b;font:16px/1.4 Arial,Helvetica,sans-serif}
+.callback-panel textarea{resize:vertical;min-height:92px}
+.callback-panel .boat-model-search{margin-top:9px}
+.callback-panel .boat-model-field:focus-within label{color:#082c3b}
+.callback-panel .boat-model-search::after{top:14px;right:12px;color:#007b88}
+.callback-panel .boat-model-search>input{padding-right:36px}
+.callback-panel .boat-model-status{margin:6px 0 0;color:#496773;font-size:11px;line-height:1.45}
+.callback-panel .boat-model-results{z-index:3;max-height:180px}
+.callback-panel .callback-submit{width:100%;margin-top:14px;min-height:52px;box-shadow:none}
+.callback-consent{margin:6px 0 0;color:#496773;font-size:11px;line-height:1.55}
+.callback-consent a{text-decoration:underline;text-underline-offset:2px;color:inherit}
+.callback-status{margin:8px 0 0;font-size:14px;line-height:1.55}
+.callback-status:empty{display:none}
+.callback-status[data-state=success]{background:#e0f2eb;color:#175f46;border:1px solid #a4d5c3;border-radius:5px;padding:12px}
+.callback-status[data-state=error]{background:#ffebe9;color:#97342d;border:1px solid #e8b4ae;border-radius:5px;padding:12px}
+.callback-panel .callback-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.callback-panel :focus-visible,.callback-launcher:focus-visible{outline:3px solid #0097a7;outline-offset:3px}
+@keyframes callback-pulse{0%{transform:scale(1);opacity:.7}75%,100%{transform:scale(1.45);opacity:0}}
+@media(max-width:760px){.callback-launcher{right:18px;bottom:calc(18px + env(safe-area-inset-bottom));width:64px;height:64px}.callback-launcher__label{display:none}.callback-panel__header{padding:18px 16px}.callback-panel__body{padding:20px 16px max(20px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){.callback-launcher::before{animation:none}}

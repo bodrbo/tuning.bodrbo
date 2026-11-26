@@ -97,8 +97,8 @@
     });
     const services = { 'Механика': 'mechanics', 'Корпус': 'hull', 'Электрика': 'electrics', 'Электроника': 'electronics', 'Интерьер': 'interior', 'Тюнинг': 'tuning' };
     document.querySelectorAll('.service-grid > article, [data-video-service]').forEach(root => {
-      const service = root.dataset.videoService || services[root.querySelector('h3')?.textContent.trim()];
-      const video = videos.find(item => item.service === service);
+      const categories = root.dataset.videoServices?.split(' ') || [root.dataset.videoService || services[root.querySelector('h3')?.textContent.trim()]];
+      const video = videos.find(item => categories.includes(item.service));
       if (!video) return;
       const button = element('button', 'video-service-link', '▶ Видео о работе');
       button.type = 'button'; button.addEventListener('click', () => play(video)); root.append(button);

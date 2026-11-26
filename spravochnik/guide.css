@@ -1,6 +1,3 @@
-.guide-header nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-.guide-header nav a { padding-block: 8px; }
-.guide-header [aria-current="page"] { text-decoration: underline; text-underline-offset: .35em; }
 .guide-main { max-width: 1160px; margin-inline: auto; padding: 26px clamp(20px, 5vw, 64px) 80px; }
 .guide-main a:not(.guide-card) { text-decoration: underline; text-underline-offset: .22em; }
 .boat-guide :focus-visible { outline: 3px solid #f5a623; outline-offset: 4px; }
@@ -34,7 +31,4 @@
 .guide-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 220px)); gap: 12px; margin-bottom: 36px; }
 @media (max-width: 700px) {
   .guide-profile { grid-template-columns: minmax(0, 1fr); }
-  .guide-header { height: auto; min-height: 78px; gap: 12px; padding-block: 10px; }
-  .guide-header nav { column-gap: 10px; font-size: .875rem; }
-  .guide-header .brand img { max-width: min(35vw, 145px); }
 }
